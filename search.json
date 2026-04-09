@@ -1,0 +1,28 @@
+[
+  {
+    "objectID": "posts/post001/index.html",
+    "href": "posts/post001/index.html",
+    "title": "1: The Playground",
+    "section": "",
+    "text": "This is the first post",
+    "crumbs": [
+      "About",
+      "Foundations",
+      "1: The Playground"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This blog is written by Tom Whitehead. I am the Head of Machine Learning at Intellegens, where we develop and deploy a machine learning toolkit for experimental design in the materials, chemicals, formulations, and life sciences industry. I have a background in physics and machine learning, and enjoy solving and writing about complex problems in these fields."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Beginner’s Guide to Group Field Theory",
+    "section": "",
+    "text": "Welcome to this set of posts discussing group field theory! This is a topic in theoretical physics that aims to build a picture of the universe starting from fundamental symmetries and interactions. The idea is to use mathematical structures called groups to describe the symmetries of physical systems, and then to build up to a realistic picture of our universe from there.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1: The Playground\n\n\n\ngft\n\ngroups\n\n\n\n\n\n\n\n\n\nApr 9, 2026\n\n\nTom Whitehead\n\n\n\n\n\nNo matching items"
+  }
+]
