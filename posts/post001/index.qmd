@@ -1,0 +1,9 @@
+---
+title: "1: The Playground"
+author: "Tom Whitehead"
+date: "2026-04-09"
+categories: [gft, groups]
+image: image.png
+---
+
+This is the first post

@@ -1,0 +1,15 @@
+---
+title: "Beginner's Guide to Group Field Theory"
+listing:
+  contents: posts
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+Welcome to this set of posts discussing group field theory! This is a topic in theoretical physics that aims to build a picture of the universe starting from fundamental symmetries and interactions. The idea is to use mathematical structures called groups to describe the symmetries of physical systems, and then to build up to a realistic picture of our universe from there.

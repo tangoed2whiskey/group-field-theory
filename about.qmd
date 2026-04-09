@@ -1,0 +1,19 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/tom-whitehead-33a319131/
+    - icon: github
+      text: Work Github
+      href: https://github.com/intellegenstom
+    - icon: github
+      text: Personal Github
+      href: https://github.com/tangoed2whiskey
+
+---
+
+This blog is written by [Tom Whitehead](https://www.linkedin.com/in/tom-whitehead-33a319131/). I am the Head of Machine Learning at [Intellegens](https://intellegens.com/), where we develop and deploy a machine learning toolkit for experimental design in the materials, chemicals, formulations, and life sciences industry. I have a background in physics and machine learning, and enjoy solving and writing about complex problems in these fields. 
