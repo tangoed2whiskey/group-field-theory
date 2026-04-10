@@ -251,8 +251,16 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#sec-thegroup" id="toc-sec-thegroup" class="nav-link" data-scroll-target="#sec-thegroup"><span class="header-section-number">2</span> The group</a></li>
+  <li><a href="#sec-casimirs" id="toc-sec-casimirs" class="nav-link" data-scroll-target="#sec-casimirs"><span class="header-section-number">3</span> Casimir invariants</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -261,6 +269,8 @@ window.Quarto = {
 
 
 
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>Group field theory is a beautiful mathematical idea: that the whole of the universe emerges from the interplay of symmetries. We will begin with the simplest possible foundation: defining a set of symmetries, and then building a universe out of them. This is the playground, where we set up a series of simple rules, and then see what happens when we let them run.</p>
 <p>The ‘group’ in ‘group field theory’ refers to a mathematical structure that captures the idea of symmetry. A group is a set of elements, along with an operation that combines two elements to produce a third. These elements represent symmetries, and the operation represents how these symmetries combine. For example, the symmetries of a square can be represented by a group consisting of rotations (by 90, 180, and 270 degrees), reflections in both the horizontal and vertical axes and through the corners, and the identity transformation (doing nothing). These symmetries can be combined in various ways: for example, a 90 degree rotation followed by a reflection across the vertical axis is equivalent to a reflection across the diagonal. The group captures all of these relationships between symmetries.</p>
 <p>The symmetries of a square also include an important concept in group field theory: they are not commutative. This means that order in which you carry out the symmetry operations is important. For example, if you first rotate the square by 90 degrees and then reflect it across the vertical axis, you will end up in a different position than if you first reflect it and then rotate it. This non-commutativity is a key feature of the symmetries that we will be working with in group field theory, and it leads to rich and complex behavior when we start to combine these symmetries in various ways.</p>
@@ -270,17 +280,54 @@ window.Quarto = {
 <figcaption>The symmetries of a square</figcaption>
 </figure>
 </div>
+</section>
+<section id="sec-thegroup" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-thegroup"><span class="header-section-number">2</span> The group</h2>
 <p>Let us introduce the group that we will be using to build our universe. It is a relatively complicated group, so once we have introduced it we will break it down and explain what each component means. The group is</p>
 <p><span id="eq-thegroup"><span class="math display">
 G=\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3).
 \tag{1}</span></span></p>
 <p>Let’s break it down. The first part, <span class="math inline">\mathrm{SO}(4,1)</span>, is the group of symmetries of a four-dimensional spacetime with one time dimension and three spatial dimensions. The second part, <span class="math inline">\mathrm{U}(1)</span>, is the group of symmetries associated with electromagnetism. The third part, <span class="math inline">\mathrm{SU}(2)</span>, is the group of symmetries associated with the weak nuclear force. The fourth part, <span class="math inline">\mathrm{SU}(3)</span>, is the group of symmetries associated with the strong nuclear force. We have chosen this group based on observations of our universe: it was a specific choice that we made in order to build a universe that resembles our own. However, we could have chosen a different group, and we would have ended up with a different universe. This is the playground: we can choose any group we like, and then see what kind of universe emerges from it.</p>
-<p>Equation <a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a special type of group called a semisimple Lie group. This gives it some very nice mathematical properties that we will be using to create our universe. In particular, Lie groups have a corresponding Lie algebra, which is a mathematical structure that captures the infinitesimal symmetries of the group. The Lie algebra allows us to work with the symmetries in a more manageable way, and it will be a key tool in our construction of the universe. Each element of a Lie group <span class="math inline">G</span> can be expressed as the exponential of an element of its Lie algebra <span class="math inline">\mathfrak{g}</span>, which is a very powerful property to help us analyse the group. As the group <a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a direct product of four underlying groups, the algebra is a direct sum of the underlying algebras,</p>
+<p><a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a special type of group called a semisimple Lie group. This gives it some very nice mathematical properties that we will be using to create our universe. In particular, Lie groups have a corresponding Lie algebra, which is a mathematical structure that captures the infinitesimal symmetries of the group. The Lie algebra allows us to work with the symmetries in a more manageable way, and it will be a key tool in our construction of the universe. Each element of a Lie group <span class="math inline">G</span> can be expressed as the exponential of an element of its Lie algebra <span class="math inline">\mathfrak{g}</span>, which is a very powerful property to help us analyse the group. As the group <a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a direct product of four underlying groups, the algebra is a direct sum of the underlying algebras (compare to how normal exponentials work: <span class="math inline">e^{a+b}=e^a e^b</span>),</p>
 <p><span id="eq-thealgebra"><span class="math display">
 \mathfrak{g}=\mathfrak{so}(4,1)\oplus \mathfrak{u}(1) \oplus \mathfrak{su}(2) \oplus \mathfrak{su}(3).
 \tag{2}</span></span></p>
+<p>Each of these algebras is formed of a set of ‘generators’, which are the building blocks of the symmetries. The generators of <span class="math inline">\mathfrak{so}(4,1)</span> are denoted by <span class="math inline">M_{AB}</span>, where <span class="math inline">A</span> and <span class="math inline">B</span> run from 0 to 4. The generators combine together through a set of rules called the commutation relations, which capture how much the symmetries fail to commute. A commutator is defined simply as <span class="math inline">[X, Y] = XY - YX</span>. The commutation relations for <span class="math inline">\mathfrak{so}(4,1)</span> are given by</p>
+<p><span class="math display">
+\left[M_{AB}, M_{CD}\right] = \left(\eta_{AC} M_{BD} - \eta_{AD} M_{BC} - \eta_{BC} M_{AD} + \eta_{BD} M_{AC}\right),
+</span></p>
+<p>where <span class="math inline">\eta_{AB}=\mathrm{diag}(-1,1,1,1,1)</span>. This looks a lot like the metric of special relativity, just with an extra spatial dimension: this will turn out not to be a coincidence!</p>
+<p><span class="math inline">\mathfrak{u}(1)</span> only has a single generator, which we will denote by <span class="math inline">Q</span>. The commutation relations for <span class="math inline">\mathfrak{u}(1)</span> are trivial: <span class="math inline">[Q, Q] = 0</span> (because there is only one generator, and a generator always commutes with itself). An algebra where all generators commute is called ‘abelian’.</p>
+<p><span class="math inline">\mathfrak{su}(2)</span> has three generators, which we will denote by <span class="math inline">T_i</span> where <span class="math inline">i</span> runs from 1 to 3. The commutation relations for <span class="math inline">\mathfrak{su}(2)</span> are given by</p>
+<p><span class="math display">
+\left[T_i, T_j\right] = i \epsilon_{ijk} T_k
+</span></p>
+<p>where <span class="math inline">\epsilon_{ijk}</span> is the Levi-Civita symbol, which is defined as <span class="math inline">\epsilon_{123} = 1</span> and is antisymmetric in its indices (i.e.&nbsp;<span class="math inline">\epsilon_{ijk} = -\epsilon_{jik}</span>, and <span class="math inline">\epsilon_{iij} = 0</span>). As not all commutation relations are zero the algebra <span class="math inline">\mathfrak{su}(2)</span> is non-abelian. The commutation relations for <span class="math inline">\mathfrak{su}(3)</span> are more complicated, but they have a similar structure to those of <span class="math inline">\mathfrak{su}(2)</span>, built from generators <span class="math inline">T_a</span> where <span class="math inline">a</span> runs from 1 to 8.</p>
+</section>
+<section id="sec-casimirs" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-casimirs"><span class="header-section-number">3</span> Casimir invariants</h2>
+<p>A very important concept in group field theory is that of Casimir invariants. A Casimir invariant is a quantity that is constructed from the generators of the algebra, and that commutes with all of the generators. This means that it is a quantity that is conserved under the symmetries of the group. For example, for <span class="math inline">\mathfrak{so}(4,1)</span> there are two Casimir invariants. The first is given by</p>
+<p><span id="eq-so41casimir2"><span class="math display">
+\mathcal{C}_2^{\mathfrak{so}(4,1)} = \frac{1}{2} \eta^{AC} \eta^{BD} M_{AB} M_{CD},
+\tag{3}</span></span></p>
+<p>and the second is formed using the Levi-Civita symbol again as</p>
+<p><span id="eq-so41casimir4"><span class="math display">
+\begin{aligned}
+W^A &amp;= \frac{1}{8} \epsilon^{ABCDE} M_{BC} M_{DE},\\
+\mathcal{C}_4^{\mathfrak{so}(4,1)} &amp;= \eta_{AB} W^A W^B.
+\end{aligned}
+\tag{4}</span></span></p>
+<p>Next time we will investigate the physical meaning of these Casimir invariants. But let us finish this post with the Casimir invariants for the other algebras. For <span class="math inline">\mathfrak{u}(1)</span> there is only one Casimir invariant, which is simply <span class="math inline">\mathcal{C}_2^{\mathfrak{u}(1)} =Q^2</span>. For <span class="math inline">\mathfrak{su}(2)</span> there is also only one Casimir invariant, which is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)} = T_i T_i</span>. <span class="math inline">\mathfrak{su}(3)</span> is again a bit more complicated: it has two Casimir invariants, which are given by</p>
+<p><span id="eq-su3casimirs"><span class="math display">
+\begin{aligned}
+\mathcal{C}_2^{\mathfrak{su}(3)} &amp;= T_a T_a,\\
+\mathcal{C}_3^{\mathfrak{su}(3)} &amp;= d_{abc} T_a T_b T_c,
+\end{aligned}
+\tag{5}</span></span></p>
+<p>where the symmetric invariant tensor <span class="math inline">d_{abc}=\frac{1}{4} \mathrm{Tr}(\{T_a, T_b\} T_c)</span>. The Casimir invariants are very important because they will turn out to be related to the physical properties of the particles in our universe. For example, the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)}</span> will turn out to be related to the mass of particles, while <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)}</span> will be related to the weak isospin of particles. We will dive into this correspondence between Casimir invariants and physical properties in the next post.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
