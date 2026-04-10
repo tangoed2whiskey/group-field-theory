@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tom Whitehead">
-<meta name="dcterms.date" content="2026-04-09">
+<meta name="dcterms.date" content="2026-04-10">
 
-<title>1: The Playground – Beginner’s Guide to Group Field Theory</title>
+<title>2: Representations – Beginner’s Guide to Group Field Theory</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -186,7 +186,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">1: The Playground</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/Representations/index.html">2: Representations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -195,10 +195,9 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">1: The Playground</a></li></ol></nav>
-      <h1 class="title">1: The Playground</h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/Representations/index.html">2: Representations</a></li></ol></nav>
+      <h1 class="title">2: Representations</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">gft</div>
                 <div class="quarto-category">groups</div>
               </div>
                   </div>
@@ -217,7 +216,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 9, 2026</p>
+        <p class="date">April 10, 2026</p>
       </div>
     </div>
     
@@ -241,13 +240,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/ThePlayground/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/ThePlayground/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: The Playground</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Representations/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Representations/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">2: Representations</span></a>
   </div>
 </li>
@@ -263,9 +262,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#sec-thegroup" id="toc-sec-thegroup" class="nav-link" data-scroll-target="#sec-thegroup"><span class="header-section-number">2</span> The group</a></li>
-  <li><a href="#sec-casimirs" id="toc-sec-casimirs" class="nav-link" data-scroll-target="#sec-casimirs"><span class="header-section-number">3</span> Casimir invariants</a></li>
+  <li><a href="#representations" id="toc-representations" class="nav-link active" data-scroll-target="#representations"><span class="header-section-number">1</span> Representations</a>
+  <ul class="collapse">
+  <li><a href="#the-cartan-weyl-basis" id="toc-the-cartan-weyl-basis" class="nav-link" data-scroll-target="#the-cartan-weyl-basis"><span class="header-section-number">1.1</span> The Cartan-Weyl basis</a></li>
+  <li><a href="#other-algebras" id="toc-other-algebras" class="nav-link" data-scroll-target="#other-algebras"><span class="header-section-number">1.2</span> Other algebras</a></li>
+  </ul></li>
+  <li><a href="#casimir-values" id="toc-casimir-values" class="nav-link" data-scroll-target="#casimir-values"><span class="header-section-number">2</span> Casimir values</a></li>
   </ul>
 </nav>
     </div>
@@ -276,62 +278,62 @@ window.Quarto = {
 
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>Group field theory is a beautiful mathematical idea: that the whole of the universe emerges from the interplay of symmetries. We will begin with the simplest possible foundation: defining a set of symmetries, and then building a universe out of them. This is the playground, where we set up a series of simple rules, and then see what happens when we let them run.</p>
-<p>The ‘group’ in ‘group field theory’ refers to a mathematical structure that captures the idea of symmetry. A group is a set of elements, along with an operation that combines two elements to produce a third. These elements represent symmetries, and the operation represents how these symmetries combine. For example, the symmetries of a square can be represented by a group consisting of rotations (by 90, 180, and 270 degrees), reflections in both the horizontal and vertical axes and through the corners, and the identity transformation (doing nothing). These symmetries can be combined in various ways: for example, a 90 degree rotation followed by a reflection across the vertical axis is equivalent to a reflection across the diagonal. The group captures all of these relationships between symmetries.</p>
-<p>The symmetries of a square also include an important concept in group field theory: they are not commutative. This means that order in which you carry out the symmetry operations is important. For example, if you first rotate the square by 90 degrees and then reflect it across the vertical axis, you will end up in a different position than if you first reflect it and then rotate it. This non-commutativity is a key feature of the symmetries that we will be working with in group field theory, and it leads to rich and complex behavior when we start to combine these symmetries in various ways.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="squares.png" class="img-fluid figure-img"></p>
-<figcaption>The symmetries of a square</figcaption>
-</figure>
-</div>
-</section>
-<section id="sec-thegroup" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="sec-thegroup"><span class="header-section-number">2</span> The group</h2>
-<p>Let us introduce the group that we will be using to build our universe. It is a relatively complicated group, so once we have introduced it we will break it down and explain what each component means. The group is</p>
-<p><span id="eq-thegroup"><span class="math display">
-G=\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3).
-\tag{1}</span></span></p>
-<p>Let’s break it down. The first part, <span class="math inline">\mathrm{SO}(4,1)</span>, is the group of symmetries of a four-dimensional spacetime with one time dimension and three spatial dimensions. The second part, <span class="math inline">\mathrm{U}(1)</span>, is the group of symmetries associated with electromagnetism. The third part, <span class="math inline">\mathrm{SU}(2)</span>, is the group of symmetries associated with the weak nuclear force. The fourth part, <span class="math inline">\mathrm{SU}(3)</span>, is the group of symmetries associated with the strong nuclear force. We have chosen this group based on observations of our universe: it was a specific choice that we made in order to build a universe that resembles our own. However, we could have chosen a different group, and we would have ended up with a different universe. This is the playground: we can choose any group we like, and then see what kind of universe emerges from it.</p>
-<p><a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a special type of group called a semisimple Lie group. This gives it some very nice mathematical properties that we will be using to create our universe. In particular, Lie groups have a corresponding Lie algebra, which is a mathematical structure that captures the infinitesimal symmetries of the group. The Lie algebra allows us to work with the symmetries in a more manageable way, and it will be a key tool in our construction of the universe. Each element of a Lie group <span class="math inline">G</span> can be expressed as the exponential of an element of its Lie algebra <span class="math inline">\mathfrak{g}</span>, which is a very powerful property to help us analyse the group. As the group <a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a direct product of four underlying groups, the algebra is a direct sum of the underlying algebras (compare to how normal exponentials work: <span class="math inline">e^{a+b}=e^a e^b</span>),</p>
-<p><span id="eq-thealgebra"><span class="math display">
-\mathfrak{g}=\mathfrak{so}(4,1)\oplus \mathfrak{u}(1) \oplus \mathfrak{su}(2) \oplus \mathfrak{su}(3).
-\tag{2}</span></span></p>
-<p>Each of these algebras is formed of a set of ‘generators’, which are the building blocks of the symmetries. The generators of <span class="math inline">\mathfrak{so}(4,1)</span> are denoted by <span class="math inline">M_{AB}</span>, where <span class="math inline">A</span> and <span class="math inline">B</span> run from 0 to 4. The generators combine together through a set of rules called the commutation relations, which capture how much the symmetries fail to commute. A commutator is defined simply as <span class="math inline">[X, Y] = XY - YX</span>. The commutation relations for <span class="math inline">\mathfrak{so}(4,1)</span> are given by</p>
+<section id="representations" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="representations"><span class="header-section-number">1</span> Representations</h2>
+<p>In the last post we looked at groups, algebras, and Casimir invariants. This time, we’re going to dive deep into the world of representation theory, and begin connecting the abstract mathematical structures of groups and algebras to the physical properties of particles in our universe.</p>
+<p>A ‘representation’ of an algebra is a way of expressing the elements of the algebra as matrices, and the algebra operation as matrix multiplication. There are generally multiple different representations of a given algebra, and each representation can be thought of as a different way of realizing the symmetries of the algebra.</p>
+<p>Let’s walk through the details of how to build representations using the example of the algebra <span class="math inline">\mathfrak{su}(2)</span>, which is part of the <a href="../../posts/ThePlayground/index.html#eq-thealgebra">full algebra</a> we are looking at. First, we need to explore the structure of <span class="math inline">\mathfrak{su}(2)</span> a bit more, and introduce the Cartan-Weyl basis of the algebra.</p>
+<section id="the-cartan-weyl-basis" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="the-cartan-weyl-basis"><span class="header-section-number">1.1</span> The Cartan-Weyl basis</h3>
+<p>We discussed last time that <span class="math inline">\mathfrak{su}(2)</span> has three generators <span class="math inline">J_i</span> and a single Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)} = J_i J_i</span>. The presence of a single Casimir invariant means that the representations of <span class="math inline">\mathfrak{su}(2)</span> are classified by a single number, which we will call <span class="math inline">j</span>. This number is related to the eigenvalue of the Casimir invariant in the representation. The single Casimir invariant also means that there is a single-element subalgebra <span class="math inline">H</span> of <span class="math inline">\mathfrak{su}(2)</span>, called the Cartan subalgebra, which is an abelian subalgebra. For the sake of definiteness we will denote it by <span class="math inline">H=J_3</span>. We can now carry out a mathematical trick, and make some more operators: <span class="math inline">E^+=J_1 + i J_2</span> and <span class="math inline">E^-=J_1 - i J_2</span>. Plugging these definitions into the <a href="../../posts/ThePlayground/index.html#eq-su2commutation">commutation relations</a> for <span class="math inline">\mathfrak{su}(2)</span>, we find that <span class="math inline">[H, E^\pm] = \pm E^\pm</span> and <span class="math inline">[E^+, E^-] = 2H</span>. This is the Cartan-Weyl basis of the algebra: it consists of the Cartan subalgebra <span class="math inline">H</span>, and the raising and lowering operators <span class="math inline">E^+</span> and <span class="math inline">E^-</span>, whose names will make sense shortly.</p>
+<p>We are going to assume that the representation of <span class="math inline">\mathfrak{su}(2)</span> we are looking at is finite-dimensional, which means that the matrices that represent the generators are finite in size. Let’s assume that we have vector space <span class="math inline">V</span> on which the generators of <span class="math inline">\mathfrak{su}(2)</span> act. We can find a vector <span class="math inline">\ket{v}</span> in this space which is an eigenvector of <span class="math inline">H</span>, so <span class="math inline">H\ket{v}=v \ket{v}</span> for some eigenvalue <span class="math inline">v</span>. We call <span class="math inline">v</span> the ‘weight’ of the vector <span class="math inline">\ket{v}</span>. Now let’s act on <span class="math inline">\ket{v}</span> with the raising operator <span class="math inline">E^+</span>, and measure the weight of this new vector using <span class="math inline">H</span>:</p>
 <p><span class="math display">
-\left[M_{AB}, M_{CD}\right] = \left(\eta_{AC} M_{BD} - \eta_{AD} M_{BC} - \eta_{BC} M_{AD} + \eta_{BD} M_{AC}\right),
+H(E^+\ket{v}) = (E^+H + [H, E^+])\ket{v} = (E^+v + E^+)\ket{v} = (v + 1) E^+\ket{v} = (v+1)\ket{v+1}.
 </span></p>
-<p>where <span class="math inline">\eta_{AB}=\mathrm{diag}(-1,1,1,1,1)</span>. This looks a lot like the metric of special relativity, just with an extra spatial dimension: this will turn out not to be a coincidence!</p>
-<p><span class="math inline">\mathfrak{u}(1)</span> only has a single generator, which we will denote by <span class="math inline">Q</span>. The commutation relations for <span class="math inline">\mathfrak{u}(1)</span> are trivial: <span class="math inline">[Q, Q] = 0</span> (because there is only one generator, and a generator always commutes with itself). An algebra where all generators commute is called ‘abelian’.</p>
-<p><span class="math inline">\mathfrak{su}(2)</span> has three generators, which we will denote by <span class="math inline">J_i</span> where <span class="math inline">i</span> runs from 1 to 3. The commutation relations for <span class="math inline">\mathfrak{su}(2)</span> are given by</p>
-<p><span id="eq-su2commutation"><span class="math display">
-\left[J_i, J_j\right] = i \epsilon_{ijk} J_k
-\tag{3}</span></span></p>
-<p>where <span class="math inline">\epsilon_{ijk}</span> is the Levi-Civita symbol, which is defined as <span class="math inline">\epsilon_{123} = 1</span> and is antisymmetric in its indices (i.e.&nbsp;<span class="math inline">\epsilon_{ijk} = -\epsilon_{jik}</span>, and <span class="math inline">\epsilon_{iij} = 0</span>). As not all commutation relations are zero the algebra <span class="math inline">\mathfrak{su}(2)</span> is non-abelian. The commutation relations for <span class="math inline">\mathfrak{su}(3)</span> are more complicated, but they have a similar structure to those of <span class="math inline">\mathfrak{su}(2)</span>, built from generators <span class="math inline">T_a</span> where <span class="math inline">a</span> runs from 1 to 8.</p>
+<p>So <span class="math inline">E^+</span> has created a new vector with weight <span class="math inline">v+1</span> (hence the name ‘raising operator’). Note that the weight has increased by exactly 1: it is not a continuous change, but discrete. We could keep applying <span class="math inline">E^+</span> to generate vectors with higher and higher weight; but we are assuming that the representation is finite-dimensional, so at some point we must reach a vector <span class="math inline">\ket{j}</span> such that <span class="math inline">E^+ \ket{j} = 0</span>. Let us call the eigenvalue of <span class="math inline">H</span> on this vector <span class="math inline">j</span>, so <span class="math inline">H\ket{j} = j \ket{j}</span>. We can now apply the lowering operator <span class="math inline">E^-</span> to generate vectors with lower and lower weight (again going down in steps of 1), until we reach a vector <span class="math inline">\ket{j_\mathrm{min}}</span> such that <span class="math inline">E^- \ket{j_\mathrm{min}} = 0</span> (the series must terminate because we assume a finite-dimensional representation). In the box below we prove that <span class="math inline">j_\mathrm{min}=-j</span>, and hence there are exactly <span class="math inline">2j+1</span> vectors in the representation, with weights ranging from <span class="math inline">-j</span> to <span class="math inline">j</span> in integer steps.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof that <span class="math inline">j_\mathrm{min}=-j</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We know two things about the vector <span class="math inline">\ket{j}</span>: it has weight <span class="math inline">j</span>, so <span class="math inline">H\ket{j} = j \ket{j}</span>, and it is annihilated by the raising operator, so <span class="math inline">E^+ \ket{j} = 0</span>. Let’s try applying the lowering operator <span class="math inline">E^-</span> to <span class="math inline">\ket{j}</span>, and then going back up with <span class="math inline">E^+</span>: <span class="math display">
+E^+ (E^- \ket{j}) = ([E^+, E^-] + E^- E^+)\ket{j} = (2H + 0)\ket{j} = 2j \ket{j}.
+</span></p>
+<p>We can do something similar with an arbitrary vector <span class="math inline">\ket{m}</span> which is the result of applying the lowering operator <span class="math inline">j-m</span> times to <span class="math inline">\ket{j}</span>, so <span class="math inline">\ket{m} = (E^-)^{j-m} \ket{j}</span>: let us first define the eigenvalue of <span class="math inline">E^+E^-</span> on this vector as <span class="math inline">E^+E^- \ket{m} = f(m) \ket{m}</span>. Now let us consider the vector <span class="math inline">\ket{m-1} = E^- \ket{m}</span>, and apply <span class="math inline">E^+E^-</span> to it:</p>
+<p><span class="math display">
+\begin{aligned}
+E^+E^-\ket{m-1} &amp;= f(m-1)\ket{m-1} = E^+E^- E^- \ket{m} \\
+&amp;= ( E^- E^+ + 2H) E^- \ket{m} \\
+&amp;= E^- f(m)\ket{m} + 2(m-1)E^- \ket{m} \\
+&amp;= (f(m) + 2(m-1)) \ket{m-1}.
+\end{aligned}
+</span> so <span class="math display">
+f(m-1) = f(m) + 2(m-1).
+</span> This is an arithmetic progression: with the starting point <span class="math inline">f(j)=2j</span> we can solve it to find that <span class="math inline">f(m)=j(j+1)-m(m-1)</span>. Now we know that <span class="math inline">f(j_\mathrm{min})=0</span> (because <span class="math inline">E^- \ket{j_\mathrm{min}} = 0</span>), so we can solve for <span class="math inline">j_\mathrm{min}</span> to find that <span class="math inline">j_\mathrm{min}=-j</span>. <span class="math inline">\blacksquare</span></p>
+</div>
+</div>
+</div>
+<p>Now to connect to some physics. The number <span class="math inline">j</span> is called the ‘spin’ of the representation, and in order for <span class="math inline">2j+1</span> to be an integer, <span class="math inline">j</span> can take on any non-negative half-integer value (i.e.&nbsp;<span class="math inline">0, \frac{1}{2}, 1, \frac{3}{2}, 2, \ldots</span>). This is exactly the spin associated with all the particles of the Standard Model.</p>
 </section>
-<section id="sec-casimirs" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="sec-casimirs"><span class="header-section-number">3</span> Casimir invariants</h2>
-<p>A very important concept in group field theory is that of Casimir invariants. A Casimir invariant is a quantity that is constructed from the generators of the algebra, and that commutes with all of the generators. This means that it is a quantity that is conserved under the symmetries of the group. For example, for <span class="math inline">\mathfrak{so}(4,1)</span> there are two Casimir invariants. The first is given by</p>
-<p><span id="eq-so41casimir2"><span class="math display">
-\mathcal{C}_2^{\mathfrak{so}(4,1)} = \frac{1}{2} \eta^{AC} \eta^{BD} M_{AB} M_{CD},
-\tag{4}</span></span></p>
-<p>and the second is formed using the Levi-Civita symbol again as</p>
-<p><span id="eq-so41casimir4"><span class="math display">
-\begin{aligned}
-W^A &amp;= \frac{1}{8} \epsilon^{ABCDE} M_{BC} M_{DE},\\
-\mathcal{C}_4^{\mathfrak{so}(4,1)} &amp;= \eta_{AB} W^A W^B.
-\end{aligned}
-\tag{5}</span></span></p>
-<p>Next time we will investigate the physical meaning of these Casimir invariants. But let us finish this post with the Casimir invariants for the other algebras. For <span class="math inline">\mathfrak{u}(1)</span> there is only one Casimir invariant, which is simply <span class="math inline">\mathcal{C}_2^{\mathfrak{u}(1)} =Q^2</span>. For <span class="math inline">\mathfrak{su}(2)</span> there is also only one Casimir invariant, which is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)} = J_i J_i</span>. <span class="math inline">\mathfrak{su}(3)</span> is again a bit more complicated: it has two Casimir invariants, which are given by</p>
-<p><span id="eq-su3casimirs"><span class="math display">
-\begin{aligned}
-\mathcal{C}_2^{\mathfrak{su}(3)} &amp;= T_a T_a,\\
-\mathcal{C}_3^{\mathfrak{su}(3)} &amp;= d_{abc} T_a T_b T_c,
-\end{aligned}
-\tag{6}</span></span></p>
-<p>where the symmetric invariant tensor <span class="math inline">d_{abc}=\frac{1}{4} \mathrm{Tr}(\{T_a, T_b\} T_c)</span>. The Casimir invariants are very important because they will turn out to be related to the physical properties of the particles in our universe. For example, the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)}</span> will turn out to be related to the mass of particles, while <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)}</span> will be related to the weak isospin of particles. We will dive into this correspondence between Casimir invariants and physical properties in the next post.</p>
+<section id="other-algebras" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="other-algebras"><span class="header-section-number">1.2</span> Other algebras</h3>
+<p>The Cartan-Weyl basis and the method of raising and lowering operators can be applied to any simple Lie algebra, including <span class="math inline">\mathfrak{su}(3)</span>. Because <span class="math inline">\mathfrak{su}(3)</span> has two Casimir invariants, its representations are classified by two integers, which we can call <span class="math inline">p</span> and <span class="math inline">q</span>. The raising and lowering operators of <span class="math inline">\mathfrak{su}(3)</span> come in pairs, and they raise and lower the weights in a two-dimensional weight space. The representations of <span class="math inline">\mathfrak{su}(3)</span> are more complicated than those of <span class="math inline">\mathfrak{su}(2)</span>, but they can still be constructed using the same principles. The representation labels <span class="math inline">(p, q)</span> are both integers, rather than half-integers, but this is just a normalization convention: the spin of <span class="math inline">\mathfrak{su}(2)</span> is a half-integer because we have normalized the generators such that the raising and lowering operators change the weight by 1, whereas for <span class="math inline">\mathfrak{su}(3)</span> we have normalized the generators such that the raising and lowering operators change the weights by 1 in a two-dimensional weight space. The representations of <span class="math inline">\mathfrak{su}(3)</span> are important in particle physics, as they correspond to the different types of quarks and gluons in the Standard Model.</p>
+<p>As an abelian algebra, <span class="math inline">\mathfrak{u}(1)</span> has only one-dimensional representations, which are classified by a single integer (or half-integer) charge <span class="math inline">Y</span>.</p>
+<p>The representations of <span class="math inline">\mathfrak{so}(4,1)</span> are more complicated. Because the algebra is non-compact, its representations are infinite-dimensional. We can split the two labels (as there are two Casimir invariants) into a continuous label <span class="math inline">\nu</span> (which will end up related to mass) and a discrete label <span class="math inline">s</span> (which will end up related to spin).</p>
+</section>
+</section>
+<section id="casimir-values" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="casimir-values"><span class="header-section-number">2</span> Casimir values</h2>
+<p>We have seen that the representations of the algebras can be labelled by a set of numbers (e.g.&nbsp;<span class="math inline">j</span> for <span class="math inline">\mathfrak{su}(2)</span>, and <span class="math inline">(p, q)</span> for <span class="math inline">\mathfrak{su}(3)</span>). Physically it can be more intuitive to label the representations by the values of the Casimir invariants, as these are directly related to measurable physical properties of particles and fields. We conclude this post by summarising the values of the Casimir invariants in the different representations.</p>
+<p>For <span class="math inline">\mathfrak{su}(2)</span> the value of the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)}</span> in the representation with spin <span class="math inline">j</span> is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)} = j(j+1)</span>, familiar from angular momentum in quantum mechanics. For <span class="math inline">\mathfrak{u}(1)</span> the value of the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{u}(1)}</span> in the representation with charge <span class="math inline">Y</span> is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{u}(1)} = Y^2</span>. For <span class="math inline">\mathfrak{su}(3)</span> the value of the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(3)}</span> in the representation with labels <span class="math inline">(p, q)</span> is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(3)} = \frac{1}{3} (p^2 + q^2 + pq + 3p + 3q)</span> and <span class="math inline">\mathcal{C}_3^{\mathfrak{su}(3)}=\frac{1}{18} (p-q)(2p+q+3)(p+2q+3)</span>.</p>
+<p>For <span class="math inline">\mathfrak{so}(4,1)</span> the values of the Casimir invariants in the representation with labels <span class="math inline">(\nu, s)</span> are given by <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)} = \nu^2 - s(s+1) + \frac{9}{4}</span> and <span class="math inline">\mathcal{C}_4^{\mathfrak{so}(4,1)} = s(s+1)(\nu^2 - \frac{1}{4})</span>. In the next post we will connect these values to physical properties of particles in our constructed universe.</p>
 
 
 </section>
