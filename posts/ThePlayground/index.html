@@ -91,6 +91,49 @@ background-size: cover;
       }
 </style>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -227,6 +270,15 @@ background-size: cover;
 <figcaption>The symmetries of a square</figcaption>
 </figure>
 </div>
+<p>Let us introduce the group that we will be using to build our universe. It is a relatively complicated group, so once we have introduced it we will break it down and explain what each component means. The group is</p>
+<p><span class="math display">
+G=\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3).
+</span> {#eq:thegroup}</p>
+<p>Let’s break it down. The first part, <span class="math inline">\mathrm{SO}(4,1)</span>, is the group of symmetries of a four-dimensional spacetime with one time dimension and three spatial dimensions. The second part, <span class="math inline">\mathrm{U}(1)</span>, is the group of symmetries associated with electromagnetism. The third part, <span class="math inline">\mathrm{SU}(2)</span>, is the group of symmetries associated with the weak nuclear force. The fourth part, <span class="math inline">\mathrm{SU}(3)</span>, is the group of symmetries associated with the strong nuclear force. We have chosen this group based on observations of our universe: it was a specific choice that we made in order to build a universe that resembles our own. However, we could have chosen a different group, and we would have ended up with a different universe. This is the playground: we can choose any group we like, and then see what kind of universe emerges from it.</p>
+<p>Equation <span class="citation" data-cites="eq:thegroup">@eq:thegroup</span> is a special type of group called a semisimple Lie group. This gives it some very nice mathematical properties that we will be using to create our universe. In particular, Lie groups have a corresponding Lie algebra, which is a mathematical structure that captures the infinitesimal symmetries of the group. The Lie algebra allows us to work with the symmetries in a more manageable way, and it will be a key tool in our construction of the universe. Each element of a Lie group <span class="math inline">G</span> can be expressed as the exponential of an element of its Lie algebra <span class="math inline">\mathfrak{g}</span>, which is a very powerful property to help us analyse the group. As the group <span class="citation" data-cites="eq:thegroup">@eq:thegroup</span> is a direct product of four underlying groups, the algebra is a direct sum of the underlying algebras,</p>
+<p><span class="math display">
+\mathfrak{g}=\mathfrak{so}(4,1)\oplus \mathfrak{u}(1) \oplus \mathfrak{su}(2) \oplus \mathfrak{su}(3).
+</span>{#eq:thealgebra}</p>
 
 
 
