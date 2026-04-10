@@ -22,7 +22,7 @@ website:
     contents:
       - section: "Foundations"
         contents:
-          - posts/post001/index.qmd
+          - posts/ThePlayground/index.qmd
 format:
   html:
     theme: cosmo
