@@ -1,0 +1,70 @@
+---
+title: "2: Representations"
+author: "Tom Whitehead"
+date: "2026-04-10"
+categories: [ groups]
+image: image.png
+title-block-banner: image.png
+title-block-banner-color: white
+---
+## Representations
+
+In the last post we looked at groups, algebras, and Casimir invariants. This time, we're going to dive deep into the world of representation theory, and begin connecting the abstract mathematical structures of groups and algebras to the physical properties of particles in our universe.
+
+A 'representation' of an algebra is a way of expressing the elements of the algebra as matrices, and the algebra operation as matrix multiplication. There are generally multiple different representations of a given algebra, and each representation can be thought of as a different way of realizing the symmetries of the algebra.
+
+Let's walk through the details of how to build representations using the example of the algebra $\mathfrak{su}(2)$, which is part of the [full algebra](../ThePlayground/index.qmd#eq-thealgebra) we are looking at. First, we need to explore the structure of $\mathfrak{su}(2)$ a bit more, and introduce the Cartan-Weyl basis of the algebra.
+
+### The Cartan-Weyl basis
+
+We discussed last time that $\mathfrak{su}(2)$ has three generators $J_i$ and a single Casimir invariant $\mathcal{C}_2^{\mathfrak{su}(2)} = J_i J_i$. The presence of a single Casimir invariant means that the representations of $\mathfrak{su}(2)$ are classified by a single number, which we will call $j$. This number is related to the eigenvalue of the Casimir invariant in the representation. The single Casimir invariant also means that there is a single-element subalgebra $H$ of $\mathfrak{su}(2)$, called the Cartan subalgebra, which is an abelian subalgebra. For the sake of definiteness we will denote it by $H=J_3$. We can now carry out a mathematical trick, and make some more operators: $E^+=J_1 + i J_2$ and $E^-=J_1 - i J_2$. Plugging these definitions into the [commutation relations](../ThePlayground/index.qmd#eq-su2commutation) for $\mathfrak{su}(2)$, we find that $[H, E^\pm] = \pm E^\pm$ and $[E^+, E^-] = 2H$. This is the Cartan-Weyl basis of the algebra: it consists of the Cartan subalgebra $H$, and the raising and lowering operators $E^+$ and $E^-$, whose names will make sense shortly.
+
+We are going to assume that the representation of $\mathfrak{su}(2)$ we are looking at is finite-dimensional, which means that the matrices that represent the generators are finite in size. Let's assume that we have vector space $V$ on which the generators of $\mathfrak{su}(2)$ act. We can find a vector $\ket{v}$ in this space which is an eigenvector of $H$, so $H\ket{v}=v \ket{v}$ for some eigenvalue $v$. We call $v$ the 'weight' of the vector $\ket{v}$. Now let's act on $\ket{v}$ with the raising operator $E^+$, and measure the weight of this new vector using $H$:
+
+$$
+H(E^+\ket{v}) = (E^+H + [H, E^+])\ket{v} = (E^+v + E^+)\ket{v} = (v + 1) E^+\ket{v} = (v+1)\ket{v+1}.
+$$
+
+So $E^+$ has created a new vector with weight $v+1$ (hence the name 'raising operator'). Note that the weight has increased by exactly 1: it is not a continuous change, but discrete. We could keep applying $E^+$ to generate vectors with higher and higher weight; but we are assuming that the representation is finite-dimensional, so at some point we must reach a vector $\ket{j}$ such that $E^+ \ket{j} = 0$. Let us call the eigenvalue of $H$ on this vector $j$, so $H\ket{j} = j \ket{j}$. We can now apply the lowering operator $E^-$ to generate vectors with lower and lower weight (again going down in steps of 1), until we reach a vector $\ket{j_\mathrm{min}}$ such that $E^- \ket{j_\mathrm{min}} = 0$ (the series must terminate because we assume a finite-dimensional representation). In the box below we prove that $j_\mathrm{min}=-j$, and hence there are exactly $2j+1$ vectors in the representation, with weights ranging from $-j$ to $j$ in integer steps. 
+
+::: {.callout-note collapse="true"}
+## Proof that $j_\mathrm{min}=-j$
+We know two things about the vector $\ket{j}$: it has weight $j$, so $H\ket{j} = j \ket{j}$, and it is annihilated by the raising operator, so $E^+ \ket{j} = 0$. Let's try applying the lowering operator $E^-$ to $\ket{j}$, and then going back up with $E^+$:
+$$
+E^+ (E^- \ket{j}) = ([E^+, E^-] + E^- E^+)\ket{j} = (2H + 0)\ket{j} = 2j \ket{j}.
+$$
+
+We can do something similar with an arbitrary vector $\ket{m}$ which is the result of applying the lowering operator $j-m$ times to $\ket{j}$, so $\ket{m} = (E^-)^{j-m} \ket{j}$: let us first define the eigenvalue of $E^+E^-$ on this vector as $E^+E^- \ket{m} = f(m) \ket{m}$. Now let us consider the vector $\ket{m-1} = E^- \ket{m}$, and apply $E^+E^-$ to it:
+
+$$
+\begin{aligned}
+E^+E^-\ket{m-1} &= f(m-1)\ket{m-1} = E^+E^- E^- \ket{m} \\
+&= ( E^- E^+ + 2H) E^- \ket{m} \\
+&= E^- f(m)\ket{m} + 2(m-1)E^- \ket{m} \\
+&= (f(m) + 2(m-1)) \ket{m-1}.
+\end{aligned}
+$$
+so 
+$$
+f(m-1) = f(m) + 2(m-1).
+$$
+This is an arithmetic progression: with the starting point $f(j)=2j$ we can solve it to find that $f(m)=j(j+1)-m(m-1)$. Now we know that $f(j_\mathrm{min})=0$ (because $E^- \ket{j_\mathrm{min}} = 0$), so we can solve for $j_\mathrm{min}$ to find that $j_\mathrm{min}=-j$. $\blacksquare$
+:::
+
+Now to connect to some physics. The number $j$ is called the 'spin' of the representation, and in order for $2j+1$ to be an integer, $j$ can take on any non-negative half-integer value (i.e. $0, \frac{1}{2}, 1, \frac{3}{2}, 2, \ldots$). This is exactly the spin associated with all the particles of the Standard Model.
+
+### Other algebras
+
+The Cartan-Weyl basis and the method of raising and lowering operators can be applied to any simple Lie algebra, including $\mathfrak{su}(3)$. Because $\mathfrak{su}(3)$ has two Casimir invariants, its representations are classified by two integers, which we can call $p$ and $q$. The raising and lowering operators of $\mathfrak{su}(3)$ come in pairs, and they raise and lower the weights in a two-dimensional weight space. The representations of $\mathfrak{su}(3)$ are more complicated than those of $\mathfrak{su}(2)$, but they can still be constructed using the same principles. The representation labels $(p, q)$ are both integers, rather than half-integers, but this is just a normalization convention: the spin of $\mathfrak{su}(2)$ is a half-integer because we have normalized the generators such that the raising and lowering operators change the weight by 1, whereas for $\mathfrak{su}(3)$ we have normalized the generators such that the raising and lowering operators change the weights by 1 in a two-dimensional weight space. The representations of $\mathfrak{su}(3)$ are important in particle physics, as they correspond to the different types of quarks and gluons in the Standard Model.
+
+As an abelian algebra, $\mathfrak{u}(1)$ has only one-dimensional representations, which are classified by a single integer (or half-integer) charge $Y$. 
+
+The representations of $\mathfrak{so}(4,1)$ are more complicated. Because the algebra is non-compact, its representations are infinite-dimensional. We can split the two labels (as there are two Casimir invariants) into a continuous label $\nu$ (which will end up related to mass) and a discrete label $s$ (which will end up related to spin). 
+
+## Casimir values
+
+We have seen that the representations of the algebras can be labelled by a set of numbers (e.g. $j$ for $\mathfrak{su}(2)$, and $(p, q)$ for $\mathfrak{su}(3)$). Physically it can be more intuitive to label the representations by the values of the Casimir invariants, as these are directly related to measurable physical properties of particles and fields. We conclude this post by summarising the values of the Casimir invariants in the different representations.
+
+For $\mathfrak{su}(2)$ the value of the Casimir invariant $\mathcal{C}_2^{\mathfrak{su}(2)}$ in the representation with spin $j$ is given by $\mathcal{C}_2^{\mathfrak{su}(2)} = j(j+1)$, familiar from angular momentum in quantum mechanics. For $\mathfrak{u}(1)$ the value of the Casimir invariant $\mathcal{C}_2^{\mathfrak{u}(1)}$ in the representation with charge $Y$ is given by $\mathcal{C}_2^{\mathfrak{u}(1)} = Y^2$. For $\mathfrak{su}(3)$ the value of the Casimir invariant $\mathcal{C}_2^{\mathfrak{su}(3)}$ in the representation with labels $(p, q)$ is given by $\mathcal{C}_2^{\mathfrak{su}(3)} = \frac{1}{3} (p^2 + q^2 + pq + 3p + 3q)$ and $\mathcal{C}_3^{\mathfrak{su}(3)}=\frac{1}{18} (p-q)(2p+q+3)(p+2q+3)$.  
+
+For $\mathfrak{so}(4,1)$ the values of the Casimir invariants in the representation with labels $(\nu, s)$ are given by $\mathcal{C}_2^{\mathfrak{so}(4,1)} = \nu^2 - s(s+1) + \frac{9}{4}$ and $\mathcal{C}_4^{\mathfrak{so}(4,1)} = s(s+1)(\nu^2 - \frac{1}{4})$. In the next post we will connect these values to physical properties of particles in our constructed universe.

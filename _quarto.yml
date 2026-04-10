@@ -5,6 +5,7 @@ website:
   description: "Beginner's Guide to Group Field Theory"
   site-url: https://tangoed2whiskey.github.io/group-field-theory/
   title: "Beginner's Guide to Group Field Theory"
+  favicon: favicon.png
   navbar:
     right:
       - about.qmd
@@ -23,6 +24,7 @@ website:
       - section: "Foundations"
         contents:
           - posts/ThePlayground/index.qmd
+          - posts/Representations/index.qmd
 format:
   html:
     theme: cosmo
@@ -32,6 +34,7 @@ format:
     html-math-method: katex
     number-sections: true
     code-copy: true
+    callout-appearance: minimal
     css: styles.css
 
 
