@@ -14,7 +14,7 @@
 <item>
   <title>1: The Playground</title>
   <dc:creator>Tom Whitehead</dc:creator>
-  <link>https://tangoed2whiskey.github.io/group-field-theory/posts/post001/</link>
+  <link>https://tangoed2whiskey.github.io/group-field-theory/posts/ThePlayground/</link>
   <description><![CDATA[ 
 
 
@@ -28,9 +28,9 @@
  ]]></description>
   <category>gft</category>
   <category>groups</category>
-  <guid>https://tangoed2whiskey.github.io/group-field-theory/posts/post001/</guid>
+  <guid>https://tangoed2whiskey.github.io/group-field-theory/posts/ThePlayground/</guid>
   <pubDate>Wed, 08 Apr 2026 23:00:00 GMT</pubDate>
-  <media:content url="https://tangoed2whiskey.github.io/group-field-theory/posts/post001/image.png" medium="image" type="image/png" height="96" width="144"/>
+  <media:content url="https://tangoed2whiskey.github.io/group-field-theory/posts/ThePlayground/image.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
 </channel>
 </rss>
