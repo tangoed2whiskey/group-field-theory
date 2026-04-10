@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Tom Whitehead">
+<meta name="dcterms.date" content="2026-04-09">
 
-<title>Beginner’s Guide to Group Field Theory</title>
+<title>1: The Playground – Beginner’s Guide to Group Field Theory</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +28,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ff0631ae66c640f7beec88805fcb678e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ff0631ae66c640f7beec88805fcb678e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,35 +72,24 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<style>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background-image: url(image.png);
+background-size: cover;
+      }
+</style>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -146,8 +135,8 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Beginner's Guide to Group Field Theory" href="index.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
 
@@ -156,7 +145,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Beginner’s Guide to Group Field Theory</span>
     </a>
   </div>
@@ -167,7 +156,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -196,7 +185,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Beginner’s Guide to Group Field Theory</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">1: The Playground</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -205,21 +194,37 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Beginner’s Guide to Group Field Theory</h1>
-                      </div>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">1: The Playground</a></li></ol></nav>
+      <h1 class="title">1: The Playground</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">gft</div>
+                <div class="quarto-category">groups</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-body">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tom Whitehead </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 9, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -235,7 +240,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/ThePlayground/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/ThePlayground/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1: The Playground</span></a>
   </div>
 </li>
@@ -247,58 +252,84 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2Z0">gft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JvdXBz">groups <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#sec-thegroup" id="toc-sec-thegroup" class="nav-link" data-scroll-target="#sec-thegroup"><span class="header-section-number">2</span> The group</a></li>
+  <li><a href="#sec-casimirs" id="toc-sec-casimirs" class="nav-link" data-scroll-target="#sec-casimirs"><span class="header-section-number">3</span> Casimir invariants</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<p>Welcome to this set of posts discussing group field theory! This is a topic in theoretical physics that aims to build a picture of the universe starting from fundamental symmetries and interactions. The idea is to use mathematical structures called groups to describe the symmetries of physical systems, and then to build up to a realistic picture of our universe from there.</p>
-<p>This is a beginner’s guide, both through aiming to be accessible to those without a full background in the topic, and through this being a relatively new area for me! I am keen to extend my understanding of the topic, and to share that understanding with others.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Z2Z0JTJDZ3JvdXBz" data-listing-date-sort="1775689200000" data-listing-file-modified-sort="1775816879199" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1136">
-<div class="thumbnail"><a href="./posts/ThePlayground/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/ThePlayground/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ThePlayground/index.html" class="no-external">1: The Playground</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2Z0'); return false;">gft</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z3JvdXBz'); return false;">groups</div>
-
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Group field theory is a beautiful mathematical idea: that the whole of the universe emerges from the interplay of symmetries. We will begin with the simplest possible foundation: defining a set of symmetries, and then building a universe out of them. This is the playground, where we set up a series of simple rules, and then see what happens when we let them run.</p>
+<p>The ‘group’ in ‘group field theory’ refers to a mathematical structure that captures the idea of symmetry. A group is a set of elements, along with an operation that combines two elements to produce a third. These elements represent symmetries, and the operation represents how these symmetries combine. For example, the symmetries of a square can be represented by a group consisting of rotations (by 90, 180, and 270 degrees), reflections in both the horizontal and vertical axes and through the corners, and the identity transformation (doing nothing). These symmetries can be combined in various ways: for example, a 90 degree rotation followed by a reflection across the vertical axis is equivalent to a reflection across the diagonal. The group captures all of these relationships between symmetries.</p>
+<p>The symmetries of a square also include an important concept in group field theory: they are not commutative. This means that order in which you carry out the symmetry operations is important. For example, if you first rotate the square by 90 degrees and then reflect it across the vertical axis, you will end up in a different position than if you first reflect it and then rotate it. This non-commutativity is a key feature of the symmetries that we will be working with in group field theory, and it leads to rich and complex behavior when we start to combine these symmetries in various ways.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="squares.png" class="img-fluid figure-img"></p>
+<figcaption>The symmetries of a square</figcaption>
+</figure>
 </div>
-<div class="delink listing-description"><a href="./posts/ThePlayground/index.html" class="no-external">
-Group field theory is a beautiful mathematical idea: that the whole of the universe emerges from the interplay of symmetries. We will begin with the simplest possible…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/ThePlayground/index.html" class="no-external">
-<div class="listing-date">
-Apr 9, 2026
-</div>
-<div class="listing-author">
-Tom Whitehead
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</section>
+<section id="sec-thegroup" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-thegroup"><span class="header-section-number">2</span> The group</h2>
+<p>Let us introduce the group that we will be using to build our universe. It is a relatively complicated group, so once we have introduced it we will break it down and explain what each component means. The group is</p>
+<p><span id="eq-thegroup"><span class="math display">
+G=\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3).
+\tag{1}</span></span></p>
+<p>Let’s break it down. The first part, <span class="math inline">\mathrm{SO}(4,1)</span>, is the group of symmetries of a four-dimensional spacetime with one time dimension and three spatial dimensions. The second part, <span class="math inline">\mathrm{U}(1)</span>, is the group of symmetries associated with electromagnetism. The third part, <span class="math inline">\mathrm{SU}(2)</span>, is the group of symmetries associated with the weak nuclear force. The fourth part, <span class="math inline">\mathrm{SU}(3)</span>, is the group of symmetries associated with the strong nuclear force. We have chosen this group based on observations of our universe: it was a specific choice that we made in order to build a universe that resembles our own. However, we could have chosen a different group, and we would have ended up with a different universe. This is the playground: we can choose any group we like, and then see what kind of universe emerges from it.</p>
+<p><a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a special type of group called a semisimple Lie group. This gives it some very nice mathematical properties that we will be using to create our universe. In particular, Lie groups have a corresponding Lie algebra, which is a mathematical structure that captures the infinitesimal symmetries of the group. The Lie algebra allows us to work with the symmetries in a more manageable way, and it will be a key tool in our construction of the universe. Each element of a Lie group <span class="math inline">G</span> can be expressed as the exponential of an element of its Lie algebra <span class="math inline">\mathfrak{g}</span>, which is a very powerful property to help us analyse the group. As the group <a href="#eq-thegroup" class="quarto-xref">Equation&nbsp;1</a> is a direct product of four underlying groups, the algebra is a direct sum of the underlying algebras (compare to how normal exponentials work: <span class="math inline">e^{a+b}=e^a e^b</span>),</p>
+<p><span id="eq-thealgebra"><span class="math display">
+\mathfrak{g}=\mathfrak{so}(4,1)\oplus \mathfrak{u}(1) \oplus \mathfrak{su}(2) \oplus \mathfrak{su}(3).
+\tag{2}</span></span></p>
+<p>Each of these algebras is formed of a set of ‘generators’, which are the building blocks of the symmetries. The generators of <span class="math inline">\mathfrak{so}(4,1)</span> are denoted by <span class="math inline">M_{AB}</span>, where <span class="math inline">A</span> and <span class="math inline">B</span> run from 0 to 4. The generators combine together through a set of rules called the commutation relations, which capture how much the symmetries fail to commute. A commutator is defined simply as <span class="math inline">[X, Y] = XY - YX</span>. The commutation relations for <span class="math inline">\mathfrak{so}(4,1)</span> are given by</p>
+<p><span class="math display">
+\left[M_{AB}, M_{CD}\right] = \left(\eta_{AC} M_{BD} - \eta_{AD} M_{BC} - \eta_{BC} M_{AD} + \eta_{BD} M_{AC}\right),
+</span></p>
+<p>where <span class="math inline">\eta_{AB}=\mathrm{diag}(-1,1,1,1,1)</span>. This looks a lot like the metric of special relativity, just with an extra spatial dimension: this will turn out not to be a coincidence!</p>
+<p><span class="math inline">\mathfrak{u}(1)</span> only has a single generator, which we will denote by <span class="math inline">Q</span>. The commutation relations for <span class="math inline">\mathfrak{u}(1)</span> are trivial: <span class="math inline">[Q, Q] = 0</span> (because there is only one generator, and a generator always commutes with itself). An algebra where all generators commute is called ‘abelian’.</p>
+<p><span class="math inline">\mathfrak{su}(2)</span> has three generators, which we will denote by <span class="math inline">T_i</span> where <span class="math inline">i</span> runs from 1 to 3. The commutation relations for <span class="math inline">\mathfrak{su}(2)</span> are given by</p>
+<p><span class="math display">
+\left[T_i, T_j\right] = i \epsilon_{ijk} T_k
+</span></p>
+<p>where <span class="math inline">\epsilon_{ijk}</span> is the Levi-Civita symbol, which is defined as <span class="math inline">\epsilon_{123} = 1</span> and is antisymmetric in its indices (i.e.&nbsp;<span class="math inline">\epsilon_{ijk} = -\epsilon_{jik}</span>, and <span class="math inline">\epsilon_{iij} = 0</span>). As not all commutation relations are zero the algebra <span class="math inline">\mathfrak{su}(2)</span> is non-abelian. The commutation relations for <span class="math inline">\mathfrak{su}(3)</span> are more complicated, but they have a similar structure to those of <span class="math inline">\mathfrak{su}(2)</span>, built from generators <span class="math inline">T_a</span> where <span class="math inline">a</span> runs from 1 to 8.</p>
+</section>
+<section id="sec-casimirs" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-casimirs"><span class="header-section-number">3</span> Casimir invariants</h2>
+<p>A very important concept in group field theory is that of Casimir invariants. A Casimir invariant is a quantity that is constructed from the generators of the algebra, and that commutes with all of the generators. This means that it is a quantity that is conserved under the symmetries of the group. For example, for <span class="math inline">\mathfrak{so}(4,1)</span> there are two Casimir invariants. The first is given by</p>
+<p><span id="eq-so41casimir2"><span class="math display">
+\mathcal{C}_2^{\mathfrak{so}(4,1)} = \frac{1}{2} \eta^{AC} \eta^{BD} M_{AB} M_{CD},
+\tag{3}</span></span></p>
+<p>and the second is formed using the Levi-Civita symbol again as</p>
+<p><span id="eq-so41casimir4"><span class="math display">
+\begin{aligned}
+W^A &amp;= \frac{1}{8} \epsilon^{ABCDE} M_{BC} M_{DE},\\
+\mathcal{C}_4^{\mathfrak{so}(4,1)} &amp;= \eta_{AB} W^A W^B.
+\end{aligned}
+\tag{4}</span></span></p>
+<p>Next time we will investigate the physical meaning of these Casimir invariants. But let us finish this post with the Casimir invariants for the other algebras. For <span class="math inline">\mathfrak{u}(1)</span> there is only one Casimir invariant, which is simply <span class="math inline">\mathcal{C}_2^{\mathfrak{u}(1)} =Q^2</span>. For <span class="math inline">\mathfrak{su}(2)</span> there is also only one Casimir invariant, which is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)} = T_i T_i</span>. <span class="math inline">\mathfrak{su}(3)</span> is again a bit more complicated: it has two Casimir invariants, which are given by</p>
+<p><span id="eq-su3casimirs"><span class="math display">
+\begin{aligned}
+\mathcal{C}_2^{\mathfrak{su}(3)} &amp;= T_a T_a,\\
+\mathcal{C}_3^{\mathfrak{su}(3)} &amp;= d_{abc} T_a T_b T_c,
+\end{aligned}
+\tag{5}</span></span></p>
+<p>where the symmetric invariant tensor <span class="math inline">d_{abc}=\frac{1}{4} \mathrm{Tr}(\{T_a, T_b\} T_c)</span>. The Casimir invariants are very important because they will turn out to be related to the physical properties of the particles in our universe. For example, the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)}</span> will turn out to be related to the mass of particles, while <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)}</span> will be related to the weak isospin of particles. We will dive into this correspondence between Casimir invariants and physical properties in the next post.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
