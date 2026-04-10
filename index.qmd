@@ -13,3 +13,5 @@ title-block-banner: true
 ---
 
 Welcome to this set of posts discussing group field theory! This is a topic in theoretical physics that aims to build a picture of the universe starting from fundamental symmetries and interactions. The idea is to use mathematical structures called groups to describe the symmetries of physical systems, and then to build up to a realistic picture of our universe from there.
+
+This is a beginner's guide, both through aiming to be accessible to those without a full background in the topic, and through this being a relatively new area for me! I am keen to extend my understanding of the topic, and to share that understanding with others.
