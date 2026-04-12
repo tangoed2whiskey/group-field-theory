@@ -25,6 +25,7 @@ website:
         contents:
           - posts/ThePlayground/index.qmd
           - posts/Representations/index.qmd
+          - posts/TheLorentzConnection/index.qmd
 format:
   html:
     theme: cosmo

@@ -36,7 +36,7 @@ Each of these algebras is formed of a set of 'generators', which are the buildin
 
 $$
 \left[M_{AB}, M_{CD}\right] = \left(\eta_{AC} M_{BD} - \eta_{AD} M_{BC} - \eta_{BC} M_{AD} + \eta_{BD} M_{AC}\right),
-$$
+$${#eq-so41commutation}
 
 where $\eta_{AB}=\mathrm{diag}(-1,1,1,1,1)$. This looks a lot like the metric of special relativity, just with an extra spatial dimension: this will turn out not to be a coincidence!
 
