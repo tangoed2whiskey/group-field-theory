@@ -26,6 +26,10 @@ website:
           - posts/ThePlayground/index.qmd
           - posts/Representations/index.qmd
           - posts/TheLorentzConnection/index.qmd
+          - posts/Fields/index.qmd
+      - section: "Building up our universe"
+        contents:
+          - posts/PeterWeyl/index.qmd
 format:
   html:
     theme: cosmo

@@ -1,0 +1,162 @@
+---
+title: "4: Fields on the Group"
+author: "Tom Whitehead"
+date: "2026-04-14"
+categories: [ groups, gft, fields]
+image: image.png
+title-block-banner: image.png
+title-block-banner-color: white
+---
+
+## Defining fields
+
+So far we have discussed symmetries of our theory, and the mathematical structures that underly them. But we haven't yet had any dynamical, physical objects that can act under those symmetries. This post will introduce the concept of fields on our group, and we will see how the symmetries of the group act on those fields and strongly constrain their form.
+
+Recall that our [full group](../ThePlayground/index.qmd#eq-thegroup) is $G=\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3)$. A 'group field' is a complex-valued function defined on $r$ copies of this group, $\phi(g_1, g_2, \ldots, g_r)$,
+where each $g_i \in G$ is a group element. This is the central dynamical object of our theory. Let's now dive into what this field means, and how it connects to the symmetries of our group.
+
+## What is a field?
+
+At this point the field $\phi(g_1, \ldots, g_r)$ is a purely group-theoretic object: it lives on $r$ copies of the group manifold $G$, and we have no connection to any physical theory. The question of what $r$ should be, and what geometric picture (if any) emerges, will be answered from the group structure alone. We will now impose two natural constraints on the field, gauge invariance and simplicity, and show that together they force $r$ to take a specific value and endow the field with a geometric interpretation.
+
+### Gauge invariance and closure {#sec-closure}
+
+The first constraint comes from gauge symmetry. We want that the physics of our universe does not change if we 'rotate' our viewpoint of the fields using any of the symmetries of the group. This can be written by requiring that the field is invariant under a group element acting simultaneously on every argument of the field by right multiplication:
+
+$$
+\phi(g_1, g_2, \ldots, g_r) = \phi(g_1 h, g_2 h, \ldots, g_r h), \qquad \forall\, h \in G.
+$$ {#eq-gaugeinvariance}
+
+This is the statement that the physics does not depend on a simultaneous 'rotation' of all arguments by the same group element. At the level of the Lie algebra, this gauge invariance translates into a 'closure constraint': the Lie algebra elements (or 'fluxes') associated with each argument must sum to zero,
+
+$$
+\sum_{i=1}^r X_i = 0, \qquad X_i \in \mathfrak{g}.
+$$ {#eq-closure}
+
+Think of this like conservation of angular momentum: the total flux across all arguments must balance. Since the algebra decomposes as a direct sum (see the [first post](../ThePlayground/index.qmd#eq-thealgebra)), this closure constraint holds independently for each factor. The constraint does not yet tell us what $r$ is, but as we will see, when combined with a second constraint it will give $r$ a powerful geometric interpretation.
+
+### The maximal compact subgroup and $\mathfrak{so}(4)$ {#sec-so4}
+
+To go further, we need to look more carefully at the structure of $\mathrm{SO}(4,1)$. This group is non-compact (because of the $-1$ in the metric signature), and its representation theory is correspondingly complicated. However, every non-compact semisimple Lie group has a 'maximal compact subgroup', which captures much of the representation-theoretic structure while being far easier to work with.
+
+For $\mathrm{SO}(4,1)$, the maximal compact subgroup is $\mathrm{SO}(4)$: the group of rotations in four-dimensional Euclidean space, corresponding to the generators $M_{AB}$ with $A, B \in \{1, 2, 3, 4\}$ (i.e. the spatial indices only, excluding the timelike 0 direction). It is this subgroup that the simplicity constraint will act on.
+
+The algebra $\mathfrak{so}(4)$ has a beautiful structure. Its generators are the six antisymmetric matrices $M_{ab}$ with $a, b \in \{1, 2, 3, 4\}$, which we can organise into two sets of three by defining the self-dual and anti-self-dual combinations:
+
+$$
+\begin{aligned}
+J_i^+ &= \frac{1}{2}\left(\frac{1}{2}\epsilon_{ijk} M_{jk} + M_{i4}\right), \\
+J_i^- &= \frac{1}{2}\left(\frac{1}{2}\epsilon_{ijk} M_{jk} - M_{i4}\right),
+\end{aligned}
+$$ {#eq-selfdual}
+
+where $i, j, k \in \{1, 2, 3\}$. One can verify using the [commutation relations](../ThePlayground/index.qmd#eq-so41commutation) above (restricted to spatial indices with $\eta_{ab}=\delta_{ab}$) that these satisfy
+
+$$
+[J_i^+, J_j^+] = \epsilon_{ijk} J_k^+, \qquad [J_i^-, J_j^-] = \epsilon_{ijk} J_k^-, \qquad [J_i^+, J_j^-] = 0.
+$$ {#eq-so4decomp}
+
+The two sets of generators decouple completely! This means the algebra splits as a direct sum:
+
+$$
+\mathfrak{so}(4) \cong \mathfrak{su}(2)^+ \oplus \mathfrak{su}(2)^-.
+$$ {#eq-so4split}
+
+Therefore the [representations](../Representations/index.qmd) of $\mathfrak{so}(4)$ are labelled by a pair $(j^+, j^-)$ of $\mathfrak{su}(2)$ spins. This is a key result: the representation theory of $\mathrm{SO}(4)$ is fully captured by two independent $\mathfrak{su}(2)$ spin labels.
+
+### The simplicity constraint {#sec-simplicity}
+
+Each argument $g_i$ of the field lives in $\mathrm{SO}(4,1)$ (times the internal groups). At the Lie algebra level, the data associated with each argument is an element $B = \frac{1}{2} B^{AB} M_{AB} \in \mathfrak{so}(4,1)$ (compare to the way a vector is defined on a basis). The generators $M_{AB}$ are antisymmetric in their indices ($M_{AB} = -M_{BA}$), so $B$ is characterised by the 10 independent components $B^{AB}$. Because $B$ is defined analogously to a vector on a vector space, but is a rank-2 object, it is called a 'bivector'. 
+
+Now, a general bivector is a sum of independent 'wedge products': it can encode data from multiple independent planes simultaneously. In $\mathfrak{so}(4,1)$, which has a 5-dimensional defining representation, a generic bivector can be decomposed into at most $\lfloor 5/2 \rfloor = 2$ independent simple (wedge-product) pieces. The 'simple' bivectors are those that consist of a single wedge product: $B=u\wedge v \implies B^{AB} = u^A v^B - u^B v^A$ for some vectors $u^A$, $v^A$.
+
+<!-- Why should we restrict attention to simple bivectors? The reasoning is analogous to the role of irreducible representations in the Peter-Weyl decomposition. Just as any function on the group can be expanded in irreducible representations, any bivector can be decomposed into simple ones. We want each argument of the field to carry a single, elementary unit of Lie algebra data&mdash;one 'quantum' of bivector information&mdash;rather than a composite of several. Multi-bivector configurations should arise from multi-field states, not be packed into a single field argument. This is the same logic by which we assign a single-particle Hilbert space to each quantum field in ordinary quantum field theory, and build multi-particle states from products of fields. -->
+
+There is a clean algebraic condition for simplicity. A bivector $B^{AB}$ is simple if and only if
+
+$$
+\epsilon^{ABCDE} B_{AB} B_{CD} = 0.
+$$ {#eq-simplicitycondition}
+
+The left-hand side is formed by contracting $B \wedge B$ with the totally antisymmetric Levi-Civita symbol. This expression vanishes if and only if $B$ is simple (i.e. $B = u \wedge v$). When $B$ is instead a sum of two or more independent wedge products, the contraction is non-zero. This condition is purely algebraic and it is called the 'simplicity constraint'. 
+
+### Simplicity at the level of representations
+
+Now let's translate this condition into representation theory, using the $\mathfrak{so}(4) \cong \mathfrak{su}(2)^+ \oplus \mathfrak{su}(2)^-$ decomposition from @eq-so4split, and apply it to our field. An arbitrary element $B_{ab}$ of $\mathfrak{so}(4)$ decomposes into self-dual and anti-self-dual parts via @eq-selfdual:
+
+$$
+B_i^+ = \frac{1}{2}\left(\frac{1}{2}\epsilon_{ijk} B_{jk} + B_{i4}\right), \qquad B_i^- = \frac{1}{2}\left(\frac{1}{2}\epsilon_{ijk} B_{jk} - B_{i4}\right).
+$$
+
+The simplicity condition @eq-simplicitycondition, when restricted to the $\mathrm{SO}(4)$ sector (indices 1&ndash;4 only), becomes
+
+$$
+|B^+|^2 = |B^-|^2,
+$$ {#eq-simplicitynorm}
+
+where $|B^\pm|^2 = B_i^\pm B_i^\pm$ are the norms of the self-dual and anti-self-dual parts respectively.
+
+::: {.callout-note collapse="true"}
+## Derivation of @eq-simplicitynorm from @eq-simplicitycondition
+In four dimensions, the simplicity condition $\epsilon^{abcd} B_{ab} B_{cd} = 0$ can be evaluated by expanding the Levi-Civita symbol. The result is easiest in the self-dual/anti-self-dual basis. Using the decomposition $B_{jk} = \epsilon_{jki}(B_i^+ + B_i^-)$ and $B_{i4} = B_i^+ - B_i^-$, the simplicity condition becomes
+
+$$
+\epsilon^{abcd} B_{ab} B_{cd} \propto |B^+|^2 - |B^-|^2 = 0.\blacksquare
+$$
+:::
+
+Recall from @eq-so4split that $\mathfrak{so}(4)$ representations are labelled $(j^+, j^-)$. The Casimir invariant of each $\mathfrak{su}(2)^\pm$ factor is $J_i^\pm J_i^\pm$, with eigenvalue $j^\pm(j^\pm+1)$ in the representation labelled by $j^\pm$.
+
+In the next post we will take the Peter-Weyl transform of the field, analogous to a Fourier transform on group space. To see what the simplicity constraint becomes in this picture, consider the analogy with ordinary Fourier analysis. A function $f(x)$ on a line can be expanded in modes $e^{ikx}$. Classically, momentum is a number $p$; but in the Fourier picture, the role of momentum is played by the differential operator $-i\frac{d}{dx}$, whose eigenvalues are the Fourier labels $k$. The classical quantity $p$ is replaced by $k$ — a new discrete (or continuous) parameter that labels the modes.
+
+The same structure applies to functions on a group. Our field $\phi(g_1, g_2, \ldots, g_r)$ is a function on the group, and the Peter-Weyl theorem expands it in irreducible representation matrix elements (the group-theoretic analogue of $e^{ikx}$). The Lie algebra flux $B_i^\pm$, which classically is just a set of numerical components, plays the role of momentum: it is replaced by the generator $J_i^\pm$, which acts on functions on the group by differentiation (a left-invariant vector field), and whose Casimir eigenvalue $j^\pm(j^\pm+1)$ is the new label that characterises each mode. So the correspondence is: $B_i^\pm$ (classical flux) $\;\longleftrightarrow\;$ $j^\pm$ (representation label), just as $p$ (classical momentum) $\;\longleftrightarrow\;$ $k$ (Fourier label). The classical simplicity condition $|B^+|^2 = |B^-|^2$ therefore becomes a condition on these new labels: $j^+(j^+ + 1) = j^-(j^- + 1)$, and since spins are non-negative, this gives
+
+$$
+j^+ = j^-.
+$$ {#eq-simplicityrepresentation}
+
+This is the simplicity constraint in representation-theoretic language: it restricts the $\mathrm{SO}(4)$ representations that appear in our field to the diagonal ones, where the self-dual and anti-self-dual spins are equal. 
+
+This is a powerful result. It means that each argument of our field, when we decompose its $\mathrm{SO}(4,1)$ content into $\mathrm{SO}(4)$ representations, must carry equal left and right spins. 
+
+## From simple bivectors to triangles {#sec-triangles}
+
+Before we can determine $r$, we need to understand what each argument of the field represents after simplicity has been imposed. 
+
+The maximal compact subgroup of $\mathrm{SO}(4,1)$ is $\mathrm{SO}(4)$, which acts naturally on $\mathbb{R}^4$. A simple bivector in $\mathfrak{so}(4)$ is an element $B_{ab} = u_a v_b - u_b v_a$ for two vectors $u, v \in \mathbb{R}^4$. Geometrically, this is the oriented area element of the parallelogram spanned by $u$ and $v$: or equivalently, of a triangle with two edges along $u$ and $v$. So the simplicity constraint has told us, purely from the algebra, that each argument of the field carries the data of a triangular face embedded in $\mathbb{R}^4$.
+
+## Why $r = 4$ {#sec-whyr4}
+
+We can now combine the closure constraint (@sec-closure) with the geometric content of simplicity (@sec-triangles). The closure constraint on the $\mathfrak{so}(4)$ sector requires
+
+$$
+\sum_{i=1}^r B^{(i)}_{ab} = 0,
+$$ {#eq-closureso4}
+
+where each $B^{(i)}_{ab}$ is a simple bivector representing a triangular face. This algebraic condition on the bivectors is a consequence of the gauge invariance @eq-gaugeinvariance that we already imposed. With the interpretation of $B^{(i)}_{ab}$ as the oriented area of a triangle, the closure condition implies that the oriented area data associated with the $r$ arguments of the field must form a closed surface; open configurations are not gauge-invariant and not allowed.
+
+The mathematical content of this closure is captured by the 'generalised Minkowski theorem': a set of $r$ simple bivectors in $\mathbb{R}^n$ that sum to zero correspond one-to-one with the oriented face areas of a closed convex polyhedron. In our case $n=4$, as determined by $\mathrm{SO}(4) \subset \mathrm{SO}(4,1)$.
+
+So which closed polyhedron? The field $\phi$ has a fixed number $r$ of arguments, and our task is to find the minimal value of $r$ for which closure is possible. We want the minimal value of $r$ because we want the field to be as simple as possible. If we constructed a non-minimal polyhedron with more faces, we could always triangulate it into a collection of smaller polyhedra with fewer faces, and therefore build it from products of fields with fewer arguments. The minimal value of $r$ gives us the fundamental building block of geometry in our theory.
+
+A closed surface made of triangles requires at least 4 triangular faces. The unique closed triangulated surface with exactly 4 faces is the boundary of a tetrahedron.
+
+Notice the logical chain: we chose $\mathrm{SO}(4,1)$ as the symmetry group $\to$ its maximal compact subgroup is $\mathrm{SO}(4)$ $\to$ simple bivectors in $\mathfrak{so}(4)$ describe triangles in $\mathbb{R}^4$ $\to$ the minimal set of triangles satisfying the closure constraint is a tetrahedron with 4 faces $\to$
+
+$$
+r = 4.
+$$ {#eq-rfour}
+
+Our field therefore takes the form
+
+$$
+\phi(g_1, g_2, g_3, g_4), \qquad g_i \in G,
+$$ {#eq-fieldexplicit}
+
+subject to the gauge invariance @eq-gaugeinvariance and the simplicity constraint @eq-simplicityrepresentation. Each such field describes the state of a single tetrahedron, equipped with internal gauge charges from the $\mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3)$ factors.
+
+Let's summarise the process we have carried out in this post. We did not (and will not for some time) use any spacetime manifold or dimension. We defined a field on copies of an abstract group, imposed natural constraints (gauge invariance and simplicity), and the group told us the answer: because $\mathrm{SO}(4,1)$ has $\mathrm{SO}(4)$ as its maximal compact subgroup, the geometry that emerges is four-dimensional, and the fundamental building block is a tetrahedron. Had we started with $\mathrm{SO}(3,1)$ (with maximal compact $\mathrm{SO}(3)$), simple bivectors in $\mathfrak{so}(3)$ would be vectors in $\mathbb{R}^3$; the closure constraint would give a closed polygon of edges; the simplest such polygon would be a triangle with $r=3$, and we would be building three-dimensional geometry.
+
+Later in this series we will see how the dynamics of the theory describe how these tetrahedra glue together, and how spacetime emerges from their collective behaviour. But for now, we have a beautiful geometric picture of the fundamental 'atom of geometry' in our theory: the group field $\phi(g_1, g_2, g_3, g_4)$ describes a single tetrahedron, with its four arguments encoding the geometry of its four triangular faces.
+
+In the next post we will come back to the Peter-Weyl transform mentioned above and bring our Casimir operators back to the fore, beginning to form the foundations of the dynamics of our theory.

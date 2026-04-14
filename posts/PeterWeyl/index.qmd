@@ -1,0 +1,76 @@
+---
+title: "5: The Peter-Weyl Transform"
+author: "Tom Whitehead"
+date: "2026-04-20"
+categories: [ groups, gft, fields]
+image: image.png
+title-block-banner: image.png
+title-block-banner-color: white
+---
+
+## The Peter-Weyl transform
+
+Last time we introduced the concept of fields on our group, and we saw how the symmetries of the group act on those fields. We will now do the equivalent of 'going to momentum space' in our theory, by performing a Peter-Weyl transform on the field.
+
+
+## The Peter-Weyl transform and the Haar measure {#sec-peterweyl}
+
+Now that we know the field lives on $G^4$, we would like to decompose it into modes&mdash;the analogue of a Fourier transform. On a Lie group, the correct tool is the **Peter-Weyl theorem**, which generalises the Fourier transform from the circle group $\mathrm{U}(1)$ to an arbitrary compact group.
+
+For a compact group $K$, the Peter-Weyl theorem states that the matrix elements of irreducible representations form a complete orthonormal basis for square-integrable functions on $K$ with respect to the **Haar measure** $\mathrm{d}\mu(k)$. The Haar measure is the unique (up to normalisation) left- and right-invariant measure on the group: it is the natural 'volume element' that respects the group's symmetries. 
+
+For our compact factors this is straightforward. On $\mathrm{SU}(2)$, the Haar measure can be parametrised using the Euler angles $(\alpha, \beta, \gamma)$ as
+
+$$
+\mathrm{d}\mu_{\mathrm{SU}(2)} = \frac{1}{16\pi^2} \sin\beta\, \mathrm{d}\alpha\, \mathrm{d}\beta\, \mathrm{d}\gamma,
+$$
+
+with ranges $\alpha \in [0, 2\pi)$, $\beta \in [0, \pi]$, $\gamma \in [0, 4\pi)$. For $\mathrm{SU}(3)$, the Haar measure involves eight parameters (corresponding to the eight generators) and is considerably more involved, but has a similar essential character. For $\mathrm{U}(1)$, the Haar measure is simply $\mathrm{d}\theta/(2\pi)$.
+
+For the non-compact factor $\mathrm{SO}(4,1)$, the situation is more subtle. We cannot directly apply the Peter-Weyl theorem because the group is non-compact and its unitary representations are infinite-dimensional. Instead, we use the **Plancherel decomposition**, which is the non-compact analogue. The key additional complication is that the 'sum' over representations becomes an integral weighted by the **Plancherel measure** $\mu(\nu, s)$, which depends on the representation labels $(\nu, s)$ [introduced in the representations post](../Representations/index.qmd).
+
+To write the Haar measure on $\mathrm{SO}(4,1)$ explicitly, we use the Cartan decomposition $\mathrm{SO}(4,1) = KAK$, where $K = \mathrm{SO}(4)$ is the maximal compact subgroup and $A$ is a one-dimensional abelian subgroup parametrised by a 'boost' parameter $t \geq 0$.  This decomposition says that any element of $\mathrm{SO}(4,1)$ can be written as a rotation, followed by a boost, followed by another rotation. The Haar measure then factorises as
+
+$$
+\mathrm{d}\mu_{\mathrm{SO}(4,1)} = \mathrm{d}\mu_{\mathrm{SO}(4)} \cdot \sinh^3(t)\, \mathrm{d}t \cdot \mathrm{d}\mu_{\mathrm{SO}(4)}.
+$$
+
+The $\sinh^3(t)$ factor is characteristic of the de Sitter geometry: it reflects the fact that the volume of a sphere in hyperbolic space grows exponentially with radius. In the flat limit $t \to 0$ (corresponding to $\ell \to \infty$), $\sinh^3(t) \approx t^3$, recovering the familiar Euclidean volume element.
+
+The full Haar measure on $G^4 = [\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3)]^4$ is the product of four copies of each factor's measure. The Peter-Weyl (or Plancherel) expansion of our field then reads:
+
+$$
+\phi(g_1, g_2, g_3, g_4) = \sum_{\{J_i\}} \phi^{J_1 J_2 J_3 J_4}_{m_1 m_2 m_3 m_4, n_1 n_2 n_3 n_4} \prod_{i=1}^4 D^{J_i}_{m_i n_i}(g_i),
+$$ {#eq-peterweyl}
+
+where $J_i$ collectively denotes all the representation labels for each copy of $G$ (i.e. $(\nu_i, s_i)$ for $\mathrm{SO}(4,1)$, $Y_i$ for $\mathrm{U}(1)$, $j_i$ for $\mathrm{SU}(2)$, and $(p_i, q_i)$ for $\mathrm{SU}(3)$), and $D^{J_i}_{m_i n_i}(g_i)$ are the corresponding matrix elements of the irreducible representations (Wigner D-matrices and their generalisations). For the $\mathrm{SO}(4,1)$ factor, the sum over $\nu$ is replaced by an integral weighted by the Plancherel measure. The simplicity constraint @eq-simplicityrepresentation restricts the $\mathrm{SO}(4)$ content of the $\mathrm{SO}(4,1)$ representations to the diagonal $j^+ = j^-$ sector.
+
+### Gauge invariance in representation space
+
+The gauge invariance @eq-gaugeinvariance has a striking effect when translated into this representation basis. Recall that gauge invariance requires $\phi(g_1 h, g_2 h, g_3 h, g_4 h) = \phi(g_1, g_2, g_3, g_4)$ for all $h \in G$. Under right multiplication by $h$, the matrix elements transform as
+
+$$
+D^{J}_{mn}(g h) = \sum_{k} D^{J}_{mk}(g)\, D^{J}_{kn}(h).
+$$
+
+Substituting the expansion @eq-peterweyl into the gauge invariance condition and using the orthogonality of the representation matrices, we find that the coefficients $\phi^{J_1 J_2 J_3 J_4}_{m_1 m_2 m_3 m_4, n_1 n_2 n_3 n_4}$ must satisfy
+
+$$
+\sum_{k_1 k_2 k_3 k_4} \phi^{J_1 J_2 J_3 J_4}_{m_1 m_2 m_3 m_4, k_1 k_2 k_3 k_4} \, D^{J_1}_{k_1 n_1}(h)\, D^{J_2}_{k_2 n_2}(h)\, D^{J_3}_{k_3 n_3}(h)\, D^{J_4}_{k_4 n_4}(h) = \phi^{J_1 J_2 J_3 J_4}_{m_1 m_2 m_3 m_4, n_1 n_2 n_3 n_4}
+$$
+
+for all $h$. By Schur's lemma, this is only possible if the $n_i$ indices are contracted with an **intertwiner**&mdash;a tensor $\iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4}$ that is invariant under the simultaneous action of $G$ on all four representation spaces:
+
+$$
+\sum_{n_1 n_2 n_3 n_4} \iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4}\, D^{J_1}_{n_1 n_1'}(h)\, D^{J_2}_{n_2 n_2'}(h)\, D^{J_3}_{n_3 n_3'}(h)\, D^{J_4}_{n_4 n_4'}(h) = \iota^{J_1 J_2 J_3 J_4}_{n_1' n_2' n_3' n_4'}, \quad \forall\, h \in G.
+$$ {#eq-intertwiner}
+
+Such intertwiners are built from **Clebsch-Gordan coefficients**: the tensors that couple pairs of representations into a third. For example, for the $\mathrm{SU}(2)$ part of the group, one first couples $j_1 \otimes j_2$ into an intermediate representation $k$, and then $j_3 \otimes j_4$ into the same $k$, and contracts. The space of such intertwiners for four representations is generally multi-dimensional&mdash;labelled by the intermediate coupling $k$&mdash;which is why the intertwiner carries additional data beyond the four representation labels.
+
+The gauge-invariant field therefore takes the form
+
+$$
+\phi(g_1, g_2, g_3, g_4) = \sum_{\{J_i\}, \iota} \phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4} \;\iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4} \prod_{i=1}^4 D^{J_i}_{m_i n_i}(g_i),
+$$ {#eq-gaugeinvariantpw}
+
+where the sum over $\iota$ runs over a basis of the intertwiner space for the given set of representations $\{J_i\}$. The coefficients $\phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4}$ are the remaining dynamical degrees of freedom. In the spin foam literature, the intertwiner $\iota$ is often called a **spin network vertex**: it encodes the quantum state of the tetrahedron's 'shape' (how the four face areas are coupled together), while the representation labels $J_i$ encode the areas of the individual faces.
