@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tom Whitehead">
-<meta name="dcterms.date" content="2026-04-20">
+<meta name="dcterms.date" content="2026-04-14">
 
 <title>5: The Peter-Weyl Transform – Beginner’s Guide to Group Field Theory</title>
 <style>
@@ -87,7 +87,8 @@ ul.task-list li input[type="checkbox"] {
 
       .quarto-title-block .quarto-title-banner {
         color: white;
-background: image.png;
+background-image: url(image.png);
+background-size: cover;
       }
 </style>
 
@@ -217,7 +218,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 20, 2026</p>
+        <p class="date">April 14, 2026</p>
       </div>
     </div>
     
@@ -295,7 +296,8 @@ window.Quarto = {
   <li><a href="#the-peter-weyl-transform" id="toc-the-peter-weyl-transform" class="nav-link active" data-scroll-target="#the-peter-weyl-transform"><span class="header-section-number">1</span> The Peter-Weyl transform</a></li>
   <li><a href="#sec-peterweyl" id="toc-sec-peterweyl" class="nav-link" data-scroll-target="#sec-peterweyl"><span class="header-section-number">2</span> The Peter-Weyl transform and the Haar measure</a>
   <ul class="collapse">
-  <li><a href="#gauge-invariance-in-representation-space" id="toc-gauge-invariance-in-representation-space" class="nav-link" data-scroll-target="#gauge-invariance-in-representation-space"><span class="header-section-number">2.1</span> Gauge invariance in representation space</a></li>
+  <li><a href="#sec-modeexpansion" id="toc-sec-modeexpansion" class="nav-link" data-scroll-target="#sec-modeexpansion"><span class="header-section-number">2.1</span> The mode expansion</a></li>
+  <li><a href="#gauge-invariance-in-representation-space" id="toc-gauge-invariance-in-representation-space" class="nav-link" data-scroll-target="#gauge-invariance-in-representation-space"><span class="header-section-number">2.2</span> Gauge invariance in representation space</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -313,27 +315,41 @@ window.Quarto = {
 </section>
 <section id="sec-peterweyl" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sec-peterweyl"><span class="header-section-number">2</span> The Peter-Weyl transform and the Haar measure</h2>
-<p>Now that we know the field lives on <span class="math inline">G^4</span>, we would like to decompose it into modes—the analogue of a Fourier transform. On a Lie group, the correct tool is the <strong>Peter-Weyl theorem</strong>, which generalises the Fourier transform from the circle group <span class="math inline">\mathrm{U}(1)</span> to an arbitrary compact group.</p>
-<p>For a compact group <span class="math inline">K</span>, the Peter-Weyl theorem states that the matrix elements of irreducible representations form a complete orthonormal basis for square-integrable functions on <span class="math inline">K</span> with respect to the <strong>Haar measure</strong> <span class="math inline">\mathrm{d}\mu(k)</span>. The Haar measure is the unique (up to normalisation) left- and right-invariant measure on the group: it is the natural ‘volume element’ that respects the group’s symmetries.</p>
+<p>Now that we know the field lives on <span class="math inline">G^4</span>, we would like to decompose it into modes:the analogue of a Fourier transform. On a Lie group, the correct tool is the Peter-Weyl theorem, which generalises the Fourier transform from the circle group <span class="math inline">\mathrm{U}(1)</span> to an arbitrary compact group.</p>
+<p>For a compact group <span class="math inline">K</span>, the Peter-Weyl theorem states that the matrix elements of irreducible representations form a complete orthonormal basis for square-integrable functions on <span class="math inline">K</span> with respect to the Haar measure <span class="math inline">\mathrm{d}\mu(k)</span>. The Haar measure is the unique (up to normalisation) left- and right-invariant measure on the group: it is the natural ‘volume element’ that respects the group’s symmetries.</p>
 <p>For our compact factors this is straightforward. On <span class="math inline">\mathrm{SU}(2)</span>, the Haar measure can be parametrised using the Euler angles <span class="math inline">(\alpha, \beta, \gamma)</span> as</p>
 <p><span class="math display">
 \mathrm{d}\mu_{\mathrm{SU}(2)} = \frac{1}{16\pi^2} \sin\beta\, \mathrm{d}\alpha\, \mathrm{d}\beta\, \mathrm{d}\gamma,
 </span></p>
 <p>with ranges <span class="math inline">\alpha \in [0, 2\pi)</span>, <span class="math inline">\beta \in [0, \pi]</span>, <span class="math inline">\gamma \in [0, 4\pi)</span>. For <span class="math inline">\mathrm{SU}(3)</span>, the Haar measure involves eight parameters (corresponding to the eight generators) and is considerably more involved, but has a similar essential character. For <span class="math inline">\mathrm{U}(1)</span>, the Haar measure is simply <span class="math inline">\mathrm{d}\theta/(2\pi)</span>.</p>
-<p>For the non-compact factor <span class="math inline">\mathrm{SO}(4,1)</span>, the situation is more subtle. We cannot directly apply the Peter-Weyl theorem because the group is non-compact and its unitary representations are infinite-dimensional. Instead, we use the <strong>Plancherel decomposition</strong>, which is the non-compact analogue. The key additional complication is that the ‘sum’ over representations becomes an integral weighted by the <strong>Plancherel measure</strong> <span class="math inline">\mu(\nu, s)</span>, which depends on the representation labels <span class="math inline">(\nu, s)</span> <a href="../../posts/Representations/index.html">introduced in the representations post</a>.</p>
-<p>To write the Haar measure on <span class="math inline">\mathrm{SO}(4,1)</span> explicitly, we use the Cartan decomposition <span class="math inline">\mathrm{SO}(4,1) = KAK</span>, where <span class="math inline">K = \mathrm{SO}(4)</span> is the maximal compact subgroup and <span class="math inline">A</span> is a one-dimensional abelian subgroup parametrised by a ‘boost’ parameter <span class="math inline">t \geq 0</span>. This decomposition says that any element of <span class="math inline">\mathrm{SO}(4,1)</span> can be written as a rotation, followed by a boost, followed by another rotation. The Haar measure then factorises as</p>
+<p>For the non-compact factor <span class="math inline">\mathrm{SO}(4,1)</span>, the situation is more subtle. We need to use a generalization of the Peter-Weyl theorem known as the Plancherel decomposition which handles non-compact groups. The sum over representations becomes an integral, weighted by the Plancherel measure <span class="math inline">\mu(\nu, s)</span>, which depends on the representation labels <span class="math inline">(\nu, s)</span> <a href="../../posts/Representations/index.html">introduced in the representations post</a>.</p>
+<p>To write the Haar measure on <span class="math inline">\mathrm{SO}(4,1)</span> explicitly, we use the Cartan decomposition <span class="math inline">\mathrm{SO}(4,1) = KAK</span>, where <span class="math inline">K = \mathrm{SO}(4)</span> is the maximal compact subgroup discussed in the <a href="../../posts/Fields/index.html#sec-so4">last post</a> and <span class="math inline">A</span> is a one-dimensional abelian subgroup parametrised by a ‘boost’ parameter <span class="math inline">t \geq 0</span>. This decomposition says that any element of <span class="math inline">\mathrm{SO}(4,1)</span> can be written as a rotation, followed by a boost, followed by another rotation. The Haar measure then factorises as</p>
 <p><span class="math display">
 \mathrm{d}\mu_{\mathrm{SO}(4,1)} = \mathrm{d}\mu_{\mathrm{SO}(4)} \cdot \sinh^3(t)\, \mathrm{d}t \cdot \mathrm{d}\mu_{\mathrm{SO}(4)}.
 </span></p>
+<p>We can make this completely explicit using the decomposition <span class="math inline">\mathrm{SO}(4) \cong (\mathrm{SU}(2)^+ \times \mathrm{SU}(2)^-)/\mathbb{Z}_2</span> from the <a href="../../posts/Fields/index.html#sec-so4">self-dual/anti-self-dual splitting</a> discussed last time. (Recall that the <em>algebra</em> splits as a clean direct sum <span class="math inline">\mathfrak{su}(2)^+ \oplus \mathfrak{su}(2)^-</span>; the <span class="math inline">\mathbb{Z}_2</span> quotient only appears at the group level because the element <span class="math inline">(-I,-I) \in \mathrm{SU}(2)^+ \times \mathrm{SU}(2)^-</span> acts trivially on <span class="math inline">\mathbb{R}^4</span>, making the product a double cover of <span class="math inline">\mathrm{SO}(4)</span>. For the Haar measure this is invisible: the quotient is discrete, so it only halves the total volume, which is absorbed into the normalisation.) Each <span class="math inline">\mathrm{SO}(4)</span> Haar measure factorises into two <span class="math inline">\mathrm{SU}(2)</span> Euler-angle measures,</p>
+<p><span class="math display">
+\mathrm{d}\mu_{\mathrm{SO}(4)} = \frac{1}{(16\pi^2)^2}\, \sin\beta^+\, \mathrm{d}\alpha^+\, \mathrm{d}\beta^+\, \mathrm{d}\gamma^+\;\sin\beta^-\, \mathrm{d}\alpha^-\, \mathrm{d}\beta^-\, \mathrm{d}\gamma^-,
+</span></p>
+<p>with the same ranges as the <span class="math inline">\mathrm{SU}(2)</span> measure above: <span class="math inline">\alpha^\pm \in [0,2\pi)</span>, <span class="math inline">\beta^\pm \in [0,\pi]</span>, <span class="math inline">\gamma^\pm \in [0,4\pi)</span>. Writing subscripts <span class="math inline">1,2</span> for the two <span class="math inline">\mathrm{SO}(4)</span> copies and expanding everything out, the full Haar measure on <span class="math inline">\mathrm{SO}(4,1)</span> reads</p>
+<p><span class="math display">
+\mathrm{d}\mu_{\mathrm{SO}(4,1)} = \frac{1}{(16\pi^2)^4}\;\sinh^3(t)\;\prod_{a=1}^{2}\prod_{\sigma=\pm} \sin\beta_a^{\sigma}\;\mathrm{d}\alpha_a^{\sigma}\,\mathrm{d}\beta_a^{\sigma}\,\mathrm{d}\gamma_a^{\sigma}\;\mathrm{d}t,
+</span></p>
+<p>with thirteen integration variables (<span class="math inline">6+1+6</span>): twelve Euler angles and one boost parameter <span class="math inline">t \geq 0</span>. Note that <span class="math inline">\mathrm{SO}(4,1)</span> is only ten-dimensional; the three extra variables reflect the redundancy of the <span class="math inline">KAK</span> decomposition: the centraliser <span class="math inline">M = Z_K(\mathfrak{a}) \cong \mathrm{SO}(3)</span> (dim 3) acts by <span class="math inline">k_1 a_t k_2 = (k_1 m)\, a_t\,(m^{-1} k_2)</span>, so different triples <span class="math inline">(k_1, t, k_2)</span> can describe the same group element. This overcounting is absorbed into the normalisation constant.</p>
 <p>The <span class="math inline">\sinh^3(t)</span> factor is characteristic of the de Sitter geometry: it reflects the fact that the volume of a sphere in hyperbolic space grows exponentially with radius. In the flat limit <span class="math inline">t \to 0</span> (corresponding to <span class="math inline">\ell \to \infty</span>), <span class="math inline">\sinh^3(t) \approx t^3</span>, recovering the familiar Euclidean volume element.</p>
-<p>The full Haar measure on <span class="math inline">G^4 = [\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3)]^4</span> is the product of four copies of each factor’s measure. The Peter-Weyl (or Plancherel) expansion of our field then reads:</p>
+<p>The full Haar measure on <span class="math inline">G^4 = [\mathrm{SO}(4,1)\times \mathrm{U}(1) \times \mathrm{SU}(2) \times \mathrm{SU}(3)]^4</span> is the product of four copies of each factor’s measure.</p>
+<section id="sec-modeexpansion" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="sec-modeexpansion"><span class="header-section-number">2.1</span> The mode expansion</h3>
+<p>Why did we need the Haar measure? The Peter-Weyl theorem says that the matrix elements of the irreducible representations form a complete orthonormal basis for <span class="math inline">L^2(K, \mathrm{d}\mu)</span>: the space of square-integrable functions on the group with respect to the Haar measure. The measure defines the inner product, giving meaning to the phrase ‘orthonormal basis’. In other words, the Haar measure is to <span class="math inline">L^2(K)</span> what <span class="math inline">\mathrm{d}^3 x</span> is to <span class="math inline">L^2(\mathbb{R}^3)</span>: the weight that makes the Fourier-type expansion work.</p>
+<p>The Peter-Weyl (or Plancherel) expansion of our field then reads:</p>
 <p><span id="eq-peterweyl"><span class="math display">
 \phi(g_1, g_2, g_3, g_4) = \sum_{\{J_i\}} \phi^{J_1 J_2 J_3 J_4}_{m_1 m_2 m_3 m_4, n_1 n_2 n_3 n_4} \prod_{i=1}^4 D^{J_i}_{m_i n_i}(g_i),
 \tag{1}</span></span></p>
-<p>where <span class="math inline">J_i</span> collectively denotes all the representation labels for each copy of <span class="math inline">G</span> (i.e.&nbsp;<span class="math inline">(\nu_i, s_i)</span> for <span class="math inline">\mathrm{SO}(4,1)</span>, <span class="math inline">Y_i</span> for <span class="math inline">\mathrm{U}(1)</span>, <span class="math inline">j_i</span> for <span class="math inline">\mathrm{SU}(2)</span>, and <span class="math inline">(p_i, q_i)</span> for <span class="math inline">\mathrm{SU}(3)</span>), and <span class="math inline">D^{J_i}_{m_i n_i}(g_i)</span> are the corresponding matrix elements of the irreducible representations (Wigner D-matrices and their generalisations). For the <span class="math inline">\mathrm{SO}(4,1)</span> factor, the sum over <span class="math inline">\nu</span> is replaced by an integral weighted by the Plancherel measure. The simplicity constraint <strong>?@eq-simplicityrepresentation</strong> restricts the <span class="math inline">\mathrm{SO}(4)</span> content of the <span class="math inline">\mathrm{SO}(4,1)</span> representations to the diagonal <span class="math inline">j^+ = j^-</span> sector.</p>
-<section id="gauge-invariance-in-representation-space" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="gauge-invariance-in-representation-space"><span class="header-section-number">2.1</span> Gauge invariance in representation space</h3>
-<p>The gauge invariance <strong>?@eq-gaugeinvariance</strong> has a striking effect when translated into this representation basis. Recall that gauge invariance requires <span class="math inline">\phi(g_1 h, g_2 h, g_3 h, g_4 h) = \phi(g_1, g_2, g_3, g_4)</span> for all <span class="math inline">h \in G</span>. Under right multiplication by <span class="math inline">h</span>, the matrix elements transform as</p>
+<p>where <span class="math inline">J_i</span> collectively denotes all the representation labels for each copy of <span class="math inline">G</span> (i.e.&nbsp;<span class="math inline">(\nu_i, s_i)</span> for <span class="math inline">\mathrm{SO}(4,1)</span>, <span class="math inline">Y_i</span> for <span class="math inline">\mathrm{U}(1)</span>, <span class="math inline">j_i</span> for <span class="math inline">\mathrm{SU}(2)</span>, and <span class="math inline">(p_i, q_i)</span> for <span class="math inline">\mathrm{SU}(3)</span>), and <span class="math inline">D^{J_i}_{m_i n_i}(g_i)</span> are the corresponding matrix elements of the irreducible representations (Wigner D-matrices and their generalisations). For the <span class="math inline">\mathrm{SO}(4,1)</span> factor, the sum over <span class="math inline">\nu</span> is replaced by an integral weighted by the Plancherel measure. The <a href="../../posts/Fields/index.html#sec-simplicity">simplicity constraint</a> restricts the <span class="math inline">\mathrm{SO}(4)</span> content of the <span class="math inline">\mathrm{SO}(4,1)</span> representations to the diagonal <span class="math inline">j^+ = j^-</span> sector.</p>
+</section>
+<section id="gauge-invariance-in-representation-space" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="gauge-invariance-in-representation-space"><span class="header-section-number">2.2</span> Gauge invariance in representation space</h3>
+<p>The <a href="../../posts/Fields/index.html#sec-closure">gauge invariance</a> has a striking effect when translated into this representation basis. Recall that gauge invariance requires <span class="math inline">\phi(g_1 h, g_2 h, g_3 h, g_4 h) = \phi(g_1, g_2, g_3, g_4)</span> for all <span class="math inline">h \in G</span>. Under right multiplication by <span class="math inline">h</span>, the matrix elements transform as</p>
 <p><span class="math display">
 D^{J}_{mn}(g h) = \sum_{k} D^{J}_{mk}(g)\, D^{J}_{kn}(h).
 </span></p>
@@ -341,16 +357,17 @@ D^{J}_{mn}(g h) = \sum_{k} D^{J}_{mk}(g)\, D^{J}_{kn}(h).
 <p><span class="math display">
 \sum_{k_1 k_2 k_3 k_4} \phi^{J_1 J_2 J_3 J_4}_{m_1 m_2 m_3 m_4, k_1 k_2 k_3 k_4} \, D^{J_1}_{k_1 n_1}(h)\, D^{J_2}_{k_2 n_2}(h)\, D^{J_3}_{k_3 n_3}(h)\, D^{J_4}_{k_4 n_4}(h) = \phi^{J_1 J_2 J_3 J_4}_{m_1 m_2 m_3 m_4, n_1 n_2 n_3 n_4}
 </span></p>
-<p>for all <span class="math inline">h</span>. By Schur’s lemma, this is only possible if the <span class="math inline">n_i</span> indices are contracted with an <strong>intertwiner</strong>—a tensor <span class="math inline">\iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4}</span> that is invariant under the simultaneous action of <span class="math inline">G</span> on all four representation spaces:</p>
+<p>for all <span class="math inline">h</span>. By Schur’s lemma, this is only possible if the <span class="math inline">n_i</span> indices are contracted with an ‘intertwiner’: a tensor <span class="math inline">\iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4}</span> that is invariant under the simultaneous action of <span class="math inline">G</span> on all four representation spaces:</p>
 <p><span id="eq-intertwiner"><span class="math display">
 \sum_{n_1 n_2 n_3 n_4} \iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4}\, D^{J_1}_{n_1 n_1'}(h)\, D^{J_2}_{n_2 n_2'}(h)\, D^{J_3}_{n_3 n_3'}(h)\, D^{J_4}_{n_4 n_4'}(h) = \iota^{J_1 J_2 J_3 J_4}_{n_1' n_2' n_3' n_4'}, \quad \forall\, h \in G.
 \tag{2}</span></span></p>
-<p>Such intertwiners are built from <strong>Clebsch-Gordan coefficients</strong>: the tensors that couple pairs of representations into a third. For example, for the <span class="math inline">\mathrm{SU}(2)</span> part of the group, one first couples <span class="math inline">j_1 \otimes j_2</span> into an intermediate representation <span class="math inline">k</span>, and then <span class="math inline">j_3 \otimes j_4</span> into the same <span class="math inline">k</span>, and contracts. The space of such intertwiners for four representations is generally multi-dimensional—labelled by the intermediate coupling <span class="math inline">k</span>—which is why the intertwiner carries additional data beyond the four representation labels.</p>
+<p>Such intertwiners are built from Clebsch-Gordan coefficients: the tensors that couple pairs of representations into a third. For example, for the <span class="math inline">\mathrm{SU}(2)</span> part of the group, one first couples <span class="math inline">j_1 \otimes j_2</span> into an intermediate representation <span class="math inline">k</span>, and then <span class="math inline">j_3 \otimes j_4</span> into the same <span class="math inline">k</span>, and contracts. The space of such intertwiners for four representations is generally multi-dimensional—labelled by the intermediate coupling <span class="math inline">k</span>—which is why the intertwiner carries additional data beyond the four representation labels.</p>
 <p>The gauge-invariant field therefore takes the form</p>
 <p><span id="eq-gaugeinvariantpw"><span class="math display">
 \phi(g_1, g_2, g_3, g_4) = \sum_{\{J_i\}, \iota} \phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4} \;\iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4} \prod_{i=1}^4 D^{J_i}_{m_i n_i}(g_i),
 \tag{3}</span></span></p>
-<p>where the sum over <span class="math inline">\iota</span> runs over a basis of the intertwiner space for the given set of representations <span class="math inline">\{J_i\}</span>. The coefficients <span class="math inline">\phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4}</span> are the remaining dynamical degrees of freedom. In the spin foam literature, the intertwiner <span class="math inline">\iota</span> is often called a <strong>spin network vertex</strong>: it encodes the quantum state of the tetrahedron’s ‘shape’ (how the four face areas are coupled together), while the representation labels <span class="math inline">J_i</span> encode the areas of the individual faces.</p>
+<p>where the sum over <span class="math inline">\iota</span> runs over a basis of the intertwiner space for the given set of representations <span class="math inline">\{J_i\}</span>. The coefficients <span class="math inline">\phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4}</span> are the remaining dynamical degrees of freedom. In the spin foam literature, the intertwiner <span class="math inline">\iota</span> is often called a ‘spin network vertex’: it encodes the quantum state of the tetrahedron’s ‘shape’ (how the four face areas are coupled together), while the representation labels <span class="math inline">J_i</span> encode the areas of the individual faces.</p>
+<p>There we have it: a field defined on our group, including the constraints imposed by physical requirements, written in terms of the representation data that will allow us to connect to particles and fields in our emergent universe. Next time we will see how Casimir invariants act on these fields, and begin to move towards identifying aspects of the emergent physics.</p>
 
 
 </section>
