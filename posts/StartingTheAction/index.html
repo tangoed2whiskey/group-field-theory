@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tom Whitehead">
-<meta name="dcterms.date" content="2026-04-10">
+<meta name="dcterms.date" content="2026-04-18">
 
-<title>2: Representations – Beginner’s Guide to Group Field Theory</title>
+<title>6: Starting the Action – Beginner’s Guide to Group Field Theory</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -186,7 +186,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/Representations/index.html">2: Representations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/PeterWeyl/index.html">Building up our universe</a></li><li class="breadcrumb-item"><a href="../../posts/StartingTheAction/index.html">6: Starting the Action</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -195,10 +195,12 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ThePlayground/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../posts/Representations/index.html">2: Representations</a></li></ol></nav>
-      <h1 class="title">2: Representations</h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/PeterWeyl/index.html">Building up our universe</a></li><li class="breadcrumb-item"><a href="../../posts/StartingTheAction/index.html">6: Starting the Action</a></li></ol></nav>
+      <h1 class="title">6: Starting the Action</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">groups</div>
+                <div class="quarto-category">gft</div>
+                <div class="quarto-category">fields</div>
                 <div class="quarto-category">casimirs</div>
                 <div class="quarto-category">representations</div>
               </div>
@@ -218,7 +220,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 10, 2026</p>
+        <p class="date">April 18, 2026</p>
       </div>
     </div>
     
@@ -248,7 +250,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Representations/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/Representations/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2: Representations</span></a>
   </div>
 </li>
@@ -283,7 +285,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/StartingTheAction/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/StartingTheAction/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">6: Starting the Action</span></a>
   </div>
 </li>
@@ -299,12 +301,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#representations" id="toc-representations" class="nav-link active" data-scroll-target="#representations"><span class="header-section-number">1</span> Representations</a>
+  <li><a href="#pieces-of-the-action" id="toc-pieces-of-the-action" class="nav-link active" data-scroll-target="#pieces-of-the-action"><span class="header-section-number">1</span> Pieces of the action</a>
   <ul class="collapse">
-  <li><a href="#the-cartan-weyl-basis" id="toc-the-cartan-weyl-basis" class="nav-link" data-scroll-target="#the-cartan-weyl-basis"><span class="header-section-number">1.1</span> The Cartan-Weyl basis</a></li>
-  <li><a href="#other-algebras" id="toc-other-algebras" class="nav-link" data-scroll-target="#other-algebras"><span class="header-section-number">1.2</span> Other algebras</a></li>
+  <li><a href="#other-casimirs" id="toc-other-casimirs" class="nav-link" data-scroll-target="#other-casimirs"><span class="header-section-number">1.1</span> Other Casimirs</a></li>
+  <li><a href="#shape-of-the-action" id="toc-shape-of-the-action" class="nav-link" data-scroll-target="#shape-of-the-action"><span class="header-section-number">1.2</span> Shape of the action</a></li>
   </ul></li>
-  <li><a href="#casimir-values" id="toc-casimir-values" class="nav-link" data-scroll-target="#casimir-values"><span class="header-section-number">2</span> Casimir values</a></li>
+  <li><a href="#bringing-it-all-together" id="toc-bringing-it-all-together" class="nav-link" data-scroll-target="#bringing-it-all-together"><span class="header-section-number">2</span> Bringing it all together</a></li>
   </ul>
 </nav>
     </div>
@@ -315,62 +317,62 @@ window.Quarto = {
 
 
 
-<section id="representations" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="representations"><span class="header-section-number">1</span> Representations</h2>
-<p>In the last post we looked at groups, algebras, and Casimir invariants. This time, we’re going to dive deep into the world of representation theory, and begin connecting the abstract mathematical structures of groups and algebras to the physical properties of particles in our universe.</p>
-<p>A ‘representation’ of an algebra is a way of expressing the elements of the algebra as matrices, and the algebra operation as matrix multiplication. There are generally multiple different representations of a given algebra, and each representation can be thought of as a different way of realizing the symmetries of the algebra.</p>
-<p>Let’s walk through the details of how to build representations using the example of the algebra <span class="math inline">\mathfrak{su}(2)</span>, which is part of the <a href="../../posts/ThePlayground/index.html#eq-thealgebra">full algebra</a> we are looking at. First, we need to explore the structure of <span class="math inline">\mathfrak{su}(2)</span> a bit more, and introduce the Cartan-Weyl basis of the algebra.</p>
-<section id="the-cartan-weyl-basis" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="the-cartan-weyl-basis"><span class="header-section-number">1.1</span> The Cartan-Weyl basis</h3>
-<p>We discussed last time that <span class="math inline">\mathfrak{su}(2)</span> has three generators <span class="math inline">J_i</span> and a single Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)} = J_i J_i</span>. The presence of a single Casimir invariant means that the representations of <span class="math inline">\mathfrak{su}(2)</span> are classified by a single number, which we will call <span class="math inline">j</span>. This number is related to the eigenvalue of the Casimir invariant in the representation. The single Casimir invariant also means that there is a single-element subalgebra <span class="math inline">H</span> of <span class="math inline">\mathfrak{su}(2)</span>, called the Cartan subalgebra, which is an abelian subalgebra. For the sake of definiteness we will denote it by <span class="math inline">H=J_3</span>. We can now carry out a mathematical trick, and make some more operators: <span class="math inline">E^+=J_1 + i J_2</span> and <span class="math inline">E^-=J_1 - i J_2</span>. Plugging these definitions into the <a href="../../posts/ThePlayground/index.html#eq-su2commutation">commutation relations</a> for <span class="math inline">\mathfrak{su}(2)</span>, we find that <span class="math inline">[H, E^\pm] = \pm E^\pm</span> and <span class="math inline">[E^+, E^-] = 2H</span>. This is the Cartan-Weyl basis of the algebra: it consists of the Cartan subalgebra <span class="math inline">H</span>, and the raising and lowering operators <span class="math inline">E^+</span> and <span class="math inline">E^-</span>, whose names will make sense shortly.</p>
-<p>We are going to assume that the representation of <span class="math inline">\mathfrak{su}(2)</span> we are looking at is finite-dimensional, which means that the matrices that represent the generators are finite in size. Let’s assume that we have vector space <span class="math inline">V</span> on which the generators of <span class="math inline">\mathfrak{su}(2)</span> act. We can find a vector <span class="math inline">\ket{v}</span> in this space which is an eigenvector of <span class="math inline">H</span>, so <span class="math inline">H\ket{v}=v \ket{v}</span> for some eigenvalue <span class="math inline">v</span>. We call <span class="math inline">v</span> the ‘weight’ of the vector <span class="math inline">\ket{v}</span>. Now let’s act on <span class="math inline">\ket{v}</span> with the raising operator <span class="math inline">E^+</span>, and measure the weight of this new vector using <span class="math inline">H</span>:</p>
+<section id="pieces-of-the-action" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="pieces-of-the-action"><span class="header-section-number">1</span> Pieces of the action</h2>
+<p>In the last post we wrote the fields defined over our group in terms of representations of the group. These fields included physical requirements of closure and simplicity, generating the final form of the field as</p>
+<p><span id="eq-gaugeinvariantpw"><span class="math display">
+\phi(g_1, g_2, g_3, g_4) = \sum_{\{J_i\}, \iota} \phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4} \;\iota^{J_1 J_2 J_3 J_4}_{n_1 n_2 n_3 n_4} \prod_{i=1}^4 D^{J_i}_{m_i n_i}(g_i),
+\tag{1}</span></span></p>
+<p>where <span class="math inline">\phi</span> are the field components, <span class="math inline">\iota</span> are the intertwiners that implement the closure condition, and <span class="math inline">D^J_{mn}(g)</span> are the representation matrices of the group elements. The labels <span class="math inline">J</span> are representation labels, and the labels <span class="math inline">m</span> and <span class="math inline">n</span> are the indices of the representation matrices. The field <span class="math inline">\phi(g_1, g_2, g_3, g_4)</span> is a function of four group elements, which we can think of as being associated with the four faces of a tetrahedron.</p>
+<p>In a <a href="../../posts/Representations/index.html#sec-casimirs">previous post</a> we also discussed the Casimir invariants of the group and their form in a given representation. It’s now time to bring these together and use the Casimir invariants to build an action for our universe.</p>
+<p>Casimir invariants are a natural choice as building blocks to construct a group-invariant action, because they are themselves invariant under every generator of the group. So let’s start with a simple example: taking the expectation value of the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)}</span> under our group field in the standard group basis:</p>
+<p><span id="eq-casimiraction"><span class="math display">
+\langle \phi | \mathcal{C}_2^{\mathfrak{so}(4,1)} | \phi \rangle = \int \prod_{i=1}^4 dg_i \, \phi(g_1, g_2, g_3, g_4) \mathcal{C}_2^{\mathfrak{so}(4,1)} \phi(g_1, g_2, g_3, g_4).
+\tag{2}</span></span></p>
+<p>This is a perfectly good group-invariant action, but it is not very useful in this form. We can rewrite it in terms of the representation basis using the Peter-Weyl transform, which will give us a much more manageable expression. The key observation is that the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)}</span> acts on the representation matrices <span class="math inline">D^J_{mn}(g)</span> as a scalar, multiplying them by the eigenvalue of the Casimir invariant in that representation. This means that when we rewrite the action in terms of the representation basis, we will get an expression that is diagonal in the representation labels <span class="math inline">J</span>, and that involves the eigenvalues of the Casimir invariant in those representations.</p>
+<p>The corresponding action in the representation basis is</p>
 <p><span class="math display">
-H(E^+\ket{v}) = (E^+H + [H, E^+])\ket{v} = (E^+v + E^+)\ket{v} = (v + 1) E^+\ket{v} = (v+1)\ket{v+1}.
+\langle \phi | \mathcal{C}_2^{\mathfrak{so}(4,1)} | \phi \rangle = \sum_{\{\nu_i, s_i\}, \iota} \sum_{\{m_i\}} \sum_{i=1}^{4}\left(-\nu_i^2 - s_i(s_i+1) - \frac{9}{4}\right) \left| \phi^{\nu_1 s_1 \ldots \nu_4 s_4}_{\iota,\, m_1 m_2 m_3 m_4} \right|^2
 </span></p>
-<p>So <span class="math inline">E^+</span> has created a new vector with weight <span class="math inline">v+1</span> (hence the name ‘raising operator’). Note that the weight has increased by exactly 1: it is not a continuous change, but discrete. We could keep applying <span class="math inline">E^+</span> to generate vectors with higher and higher weight; but we are assuming that the representation is finite-dimensional, so at some point we must reach a vector <span class="math inline">\ket{j}</span> such that <span class="math inline">E^+ \ket{j} = 0</span>. Let us call the eigenvalue of <span class="math inline">H</span> on this vector <span class="math inline">j</span>, so <span class="math inline">H\ket{j} = j \ket{j}</span>. We can now apply the lowering operator <span class="math inline">E^-</span> to generate vectors with lower and lower weight (again going down in steps of 1), until we reach a vector <span class="math inline">\ket{j_\mathrm{min}}</span> such that <span class="math inline">E^- \ket{j_\mathrm{min}} = 0</span> (the series must terminate because we assume a finite-dimensional representation). In the box below we prove that <span class="math inline">j_\mathrm{min}=-j</span>, and hence there are exactly <span class="math inline">2j+1</span> vectors in the representation, with weights ranging from <span class="math inline">-j</span> to <span class="math inline">j</span> in integer steps.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof that <span class="math inline">j_\mathrm{min}=-j</span>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We know two things about the vector <span class="math inline">\ket{j}</span>: it has weight <span class="math inline">j</span>, so <span class="math inline">H\ket{j} = j \ket{j}</span>, and it is annihilated by the raising operator, so <span class="math inline">E^+ \ket{j} = 0</span>. Let’s try applying the lowering operator <span class="math inline">E^-</span> to <span class="math inline">\ket{j}</span>, and then going back up with <span class="math inline">E^+</span>: <span class="math display">
-E^+ (E^- \ket{j}) = ([E^+, E^-] + E^- E^+)\ket{j} = (2H + 0)\ket{j} = 2j \ket{j}.
-</span></p>
-<p>We can do something similar with an arbitrary vector <span class="math inline">\ket{m}</span> which is the result of applying the lowering operator <span class="math inline">j-m</span> times to <span class="math inline">\ket{j}</span>, so <span class="math inline">\ket{m} = (E^-)^{j-m} \ket{j}</span>: let us first define the eigenvalue of <span class="math inline">E^+E^-</span> on this vector as <span class="math inline">E^+E^- \ket{m} = f(m) \ket{m}</span>. Now let us consider the vector <span class="math inline">\ket{m-1} = E^- \ket{m}</span>, and apply <span class="math inline">E^+E^-</span> to it:</p>
+<p>where each face <span class="math inline">i</span> carries the two <span class="math inline">\mathrm{SO}(4,1)</span> representation labels <span class="math inline">(\nu_i, s_i)</span>, and the Casimir eigenvalue <span class="math inline">\mathcal{c}_2^{\mathfrak{so}(4,1)} = -\nu^2 - s(s+1) - \frac{9}{4}</span> follows from the <a href="../../posts/Representations/index.html">general formula</a> for the representation <span class="math inline">(\nu, s)</span>. The sum over <span class="math inline">i</span> accounts for the Casimir acting independently on each of the four group arguments of the field. The <span class="math inline">m_i</span> are the matrix indices of the representation, summed over all states within each representation. Under <span class="math inline">\mathrm{SO}(4) \cong \mathrm{SU}(2)^+ \times \mathrm{SU}(2)^-</span>, representations are labelled by a pair <span class="math inline">(j^+, j^-)</span>; the <a href="../../posts/Fields/index.html#sec-simplicity">simplicity constraint</a> <span class="math inline">j^+ = j^- = j</span> restricts <span class="math inline">m_i</span> to run only over the diagonal <span class="math inline">\mathrm{SO}(4)</span> sector.</p>
+<section id="other-casimirs" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="other-casimirs"><span class="header-section-number">1.1</span> Other Casimirs</h3>
+<p>The part of the action above corresponding to the invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)}</span> is just part of the story. We can also include other Casimir invariants, such as <span class="math inline">\mathcal{C}_4^{\mathfrak{so}(4,1)}</span>, <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(3)}</span>, etc: each of these gives us a different group-invariant action, and we can take linear combinations of them to build more complicated actions. We now run into a free parameter problem: what should the relative weights in the linear combination of these different Casimir invariants be?</p>
+<p>This is a fundamental problem with the group field theory framework: the construction of the action is not determined by the framework itself, but requires input from physics. For now we will note that the part of the action second-order in the fields can be written as</p>
 <p><span class="math display">
-\begin{aligned}
-E^+E^-\ket{m-1} &amp;= f(m-1)\ket{m-1} = E^+E^- E^- \ket{m} \\
-&amp;= ( E^- E^+ + 2H) E^- \ket{m} \\
-&amp;= E^- f(m)\ket{m} + 2(m-1)E^- \ket{m} \\
-&amp;= (f(m) + 2(m-1)) \ket{m-1}.
-\end{aligned}
-</span> so <span class="math display">
-f(m-1) = f(m) + 2(m-1).
-</span> This is an arithmetic progression: with the starting point <span class="math inline">f(j)=2j</span> we can solve it to find that <span class="math inline">f(m)=j(j+1)-m(m-1)</span>. Now we know that <span class="math inline">f(j_\mathrm{min})=0</span> (because <span class="math inline">E^- \ket{j_\mathrm{min}} = 0</span>), so we can solve for <span class="math inline">j_\mathrm{min}</span> to find that <span class="math inline">j_\mathrm{min}=-j</span>. <span class="math inline">\blacksquare</span></p>
-</div>
-</div>
-</div>
-<p>Now to connect to some physics. The number <span class="math inline">j</span> is called the ‘spin’ of the representation, and in order for <span class="math inline">2j+1</span> to be an integer, <span class="math inline">j</span> can take on any non-negative half-integer value (i.e.&nbsp;<span class="math inline">0, \frac{1}{2}, 1, \frac{3}{2}, 2, \ldots</span>). This is exactly the spin associated with all the particles of the Standard Model.</p>
+\sum_{\{J_i\},\iota}\sum_{\{m_i\}} \left( \lambda_0 + \lambda_2^{\mathfrak{so}(4,1)} \mathcal{c}_2^{\mathfrak{so}(4,1)} + \lambda_4^{\mathfrak{so}(4,1)} \mathcal{c}_4^{\mathfrak{so}(4,1)} + \lambda_2^{\mathfrak{su}(3)} \mathcal{c}_2^{\mathfrak{su}(3)} + \ldots \right) \left| \phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4} \right|^2
+</span></p>
+<p>where <span class="math inline">\lambda_2^{\mathfrak{so}(4,1)}</span>, <span class="math inline">\lambda_4^{\mathfrak{so}(4,1)}</span>, <span class="math inline">\lambda_2^{\mathfrak{su}(3)}</span>, etc are the free parameters corresponding to the different Casimir invariants, and <span class="math inline">\lambda_0</span> is a weight corresponding to the trivial identity invariant. The <span class="math inline">\mathcal{c}_2^{\mathfrak{so}(4,1)}</span>, <span class="math inline">\mathcal{c}_4^{\mathfrak{so}(4,1)}</span>, <span class="math inline">\mathcal{c}_2^{\mathfrak{su}(3)}</span>, etc are the eigenvalues of the corresponding Casimir invariants in the representation <span class="math inline">J</span>.</p>
 </section>
-<section id="other-algebras" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="other-algebras"><span class="header-section-number">1.2</span> Other algebras</h3>
-<p>The Cartan-Weyl basis and the method of raising and lowering operators can be applied to any simple Lie algebra, including <span class="math inline">\mathfrak{su}(3)</span>. Because <span class="math inline">\mathfrak{su}(3)</span> has two Casimir invariants, its representations are classified by two integers, which we can call <span class="math inline">p</span> and <span class="math inline">q</span>. The raising and lowering operators of <span class="math inline">\mathfrak{su}(3)</span> come in pairs, and they raise and lower the weights in a two-dimensional weight space. The representations of <span class="math inline">\mathfrak{su}(3)</span> are more complicated than those of <span class="math inline">\mathfrak{su}(2)</span>, but they can still be constructed using the same principles. The representation labels <span class="math inline">(p, q)</span> are both integers, rather than half-integers, but this is just a normalization convention: the spin of <span class="math inline">\mathfrak{su}(2)</span> is a half-integer because we have normalized the generators such that the raising and lowering operators change the weight by 1, whereas for <span class="math inline">\mathfrak{su}(3)</span> we have normalized the generators such that the raising and lowering operators change the weights by 1 in a two-dimensional weight space. The representations of <span class="math inline">\mathfrak{su}(3)</span> are important in particle physics, as they correspond to the different types of quarks and gluons in the Standard Model.</p>
-<p>As an abelian algebra, <span class="math inline">\mathfrak{u}(1)</span> has only one-dimensional representations, which are classified by a single integer (or half-integer) charge <span class="math inline">Y</span>.</p>
-<p>The representations of <span class="math inline">\mathfrak{so}(4,1)</span> are more complicated. Because the algebra is non-compact, its representations are infinite-dimensional. We can split the two labels (as there are two Casimir invariants) into a continuous label <span class="math inline">\nu</span> (which will end up related to mass) and a discrete label <span class="math inline">s</span> (which will end up related to spin).</p>
+<section id="shape-of-the-action" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="shape-of-the-action"><span class="header-section-number">1.2</span> Shape of the action</h3>
+<p>Previously we have discussed how the fields can be associated with tetrahedra, with each of the four arguments of the field corresponding to a face of the tetrahedron. In the quadratic term <a href="#eq-casimiraction" class="quarto-xref">Equation&nbsp;2</a> we saw that the faces of these tetrahedra were exactly paired up between the two terms: both terms have faces <span class="math inline">g_1, g_2, g_3, g_4</span>. This means that the quadratic part of the action corresponds to dual tetrahedra, that share all of their faces. In principle we could include terms with arbitrary numbers of fields in the action, but in order for the action to be a scalar we must ensure that all faces of the tetrahedra are paired up between the fields.</p>
+<p>This is where we will introduce another constraint on the mathematical framework to ensure it generates a universe that looks like ours. We will ‘colour’ each of the faces of the tetrahedra a different colour, and only allow terms in the action where faces of the same colour are paired up between the fields. This effectively introduces an internal symmetry on the fields.</p>
+<p>This has a simple interpretation for the quadratic term above: all pairs of matching colours pair up. As we introduce more fields into the action, it gets considerably more complicated. In <a href="#fig-regulargraphs" class="quarto-xref">Figure&nbsp;1</a> we show the possible ways to pair up the faces of <span class="math inline">n=2,\,3,\,4,\,5</span> fields, with each small circle representing a field (a tetrahedron), and each line representing a pair of faces of the same colour. The quadratic action from above is shown in the top row, with four faces of matching colours paired up between the two fields. At cubic order in the fields there is only one way to pair up the faces, shown in the second row: each field shares two faces with each of the other two fields. Fourth and fifth order in the fields have multiple possible constructions, and this is the source of a lot of the complexity in group field theory.</p>
+<div id="fig-regulargraphs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regulargraphs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="regular_graphs.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regulargraphs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 4-regular coloured graphs
+</figcaption>
+</figure>
+</div>
+<p>In fact, there is too much complexity in the allowed ways to pair up the faces of the fields. We will examine in future posts how the group actions we’re building ends up generating a physical universe, and we will see that many of the allowed pairings in <a href="#fig-regulargraphs" class="quarto-xref">Figure&nbsp;1</a> do not generate a universe that looks like ours. For now we will simply note that the pairings that do generate a universe that looks like ours are only the quadratic pairing shown in the top row, and the simplicial quintic pairing <span class="math inline">K_5</span> shown in the bottom right. This is a very strong constraint on the form of the action, the underlying physical reason for which is not yet fully understood.</p>
 </section>
 </section>
-<section id="casimir-values" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="casimir-values"><span class="header-section-number">2</span> Casimir values</h2>
-<p>We have seen that the representations of the algebras can be labelled by a set of numbers (e.g.&nbsp;<span class="math inline">j</span> for <span class="math inline">\mathfrak{su}(2)</span>, and <span class="math inline">(p, q)</span> for <span class="math inline">\mathfrak{su}(3)</span>). Physically it can be more intuitive to label the representations by the values of the Casimir invariants, as these are directly related to measurable physical properties of particles and fields. We conclude this post by summarising the values of the Casimir invariants in the different representations.</p>
-<p>For <span class="math inline">\mathfrak{su}(2)</span> the value of the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)}</span> in the representation with spin <span class="math inline">j</span> is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(2)} = j(j+1)</span>, familiar from angular momentum in quantum mechanics. For <span class="math inline">\mathfrak{u}(1)</span> the value of the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{u}(1)}</span> in the representation with charge <span class="math inline">Y</span> is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{u}(1)} = Y^2</span>. For <span class="math inline">\mathfrak{su}(3)</span> the value of the Casimir invariant <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(3)}</span> in the representation with labels <span class="math inline">(p, q)</span> is given by <span class="math inline">\mathcal{C}_2^{\mathfrak{su}(3)} = \frac{1}{3} (p^2 + q^2 + pq + 3p + 3q)</span> and <span class="math inline">\mathcal{C}_3^{\mathfrak{su}(3)}=\frac{1}{18} (p-q)(2p+q+3)(p+2q+3)</span>.</p>
-<p>For <span class="math inline">\mathfrak{so}(4,1)</span> the values of the Casimir invariants in the representation with labels <span class="math inline">(\nu, s)</span> are given by <span class="math inline">\mathcal{C}_2^{\mathfrak{so}(4,1)} = -\nu^2 - s(s+1) - \frac{9}{4}</span> and <span class="math inline">\mathcal{C}_4^{\mathfrak{so}(4,1)} = -s(s+1)(\nu^2 + \frac{1}{4})</span>. There are three different branches of representations of <span class="math inline">\mathfrak{so}(4,1)</span>: a primary branch, where <span class="math inline">\nu</span> is a real number; a complementary branch where <span class="math inline">\nu</span> is pure imaginary; and a discrete series, where <span class="math inline">\nu=s+1</span> takes on specific values. In the next post we will connect these values to physical properties of particles in our constructed universe.</p>
+<section id="bringing-it-all-together" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="bringing-it-all-together"><span class="header-section-number">2</span> Bringing it all together</h2>
+<p>To summarise, the action of our universe is built from pairings of the faces of the fields. These are acted on linearly by the Casimir invariants, with free parameters generating the linear combinations of the different Casimir invariants. So the action, including the quadratic and simplicial quintic terms, has the general form</p>
+<p><span class="math display">
+\begin{align}
+S = &amp;\sum_{\{J_i\},\iota}\sum_{\{m_i\}} \left( \lambda_0 + \lambda_2^{\mathfrak{so}(4,1)} \mathcal{c}_2^{\mathfrak{so}(4,1)} + \lambda_4^{\mathfrak{so}(4,1)} \mathcal{c}_4^{\mathfrak{so}(4,1)} + \lambda_2^{\mathfrak{su}(3)} \mathcal{c}_2^{\mathfrak{su}(3)} + \ldots \right) \left| \phi^{J_1 J_2 J_3 J_4}_{\iota,\, m_1 m_2 m_3 m_4} \right|^2 \\
+&amp;+\sum_{\{J_{ab}\}_{a&lt;b}}\left(\prod_{a&lt;b}\frac{1}{d_{J_{ab}}}\right)\sum_{\{\iota_a\}_{a=1}^5}\{15j\}\left(\left\{J_{ab}\right\}; \left\{\iota_a\right\}\right)\sum_{\{m_{ab}\}_{a&lt;b}} \prod_{a=1}^5 \phi^{\{J_{ab}\}_{b\neq a}}_{\iota_a,\, \{m_{ab}\}_{b\neq a}}
+\end{align}
+</span></p>
+<p>where the <span class="math inline">J_{ab}</span> label the representations associated with the faces of the five fields in the quintic term; the <span class="math inline">\iota_a</span> are the intertwiners associated with each of the five fields; the <span class="math inline">\{15j\}</span> is a symbol that captures the combinatorial structure of the quintic term, and is a function of the representation labels and intertwiners; and the <span class="math inline">m_{ab}</span> are the matrix indices of the representations, summed over all states within each representation.</p>
+<p>This is the action of our universe, built from the symmetries of the group. This is the point of maximum complexity of the theory. From here on we will be simplifying down to recover physics: beginning next time with asking how we can recover fermionic symmetries from the (so far apparently bosonic) group field theory framework.</p>
 
 
 </section>
